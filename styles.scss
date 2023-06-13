@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Raleway:wght@400;700&display=swap");
+
+$white: #ffffff;
+$transparent75: rgba(0, 0, 0, 0.75);
+$title-font: "Bitter", serif;
+$body-font: "Raleway", sans-serif;
+$text48: 48px;
+$text36: 36px;
+$text32: 32px;
+$text24: 24px;
+$text16: 16px;
+$text14: 14px;
+$green-dark: #087535;
+$green-light: #d7fadb;
+$button-text-color: #05421e;
+
+@mixin action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $text16;
+    font-family: $body-font;
+    background-color: $white;
+    color: $button-text-color;
+    font-weight: 700;
+    padding: 16px 30px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    line-height: 1;
+}
+button {
+    background: none;
+    border: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+input {
+    border: none;
+    outline: none;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+li {
+    list-style: none;
+}
+svg {
+    height: auto;
+}
+
+.b {
+    border: 2px red solid;
+}
+
+.container {
+    max-width: 1090px;
+    margin: 0 auto;
+}
+
+.introduction {
+    color: $white;
+    height: 95vh;
+    position: relative;
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background-image: linear-gradient($transparent75, $transparent75), url("./assets/top-section-bg.png");
+        background-size: cover;
+        background-position: left;
+        background-repeat: no-repeat;
+    }
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0;
+    border-bottom: 1px solid $white;
+    font-family: $body-font;
+    font-weight: 700;
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 61px;
+        & img {
+            max-width: 40px;
+            border-radius: 30%;
+            box-sizing: content-box;
+        }
+    }
+    .anchors {
+        display: flex;
+        gap: 65px;
+    }
+    .phone a {
+        font-family: $title-font;
+    }
+}
+
+.profile {
+    padding: 76px 0;
+    .advocate-info {
+        display: flex;
+        justify-content: space-between;
+    }
+    article {
+        font-weight: 700;
+        h1 {
+            font-family: $title-font;
+            font-size: $text32;
+            span {
+                display: inline-block;
+                font-size: $text48;
+                margin-bottom: 20px;
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: -14%;
+                    left: 0;
+                    z-index: -1;
+                    width: 114%;
+                    height: 26px;
+                    background: $green-dark;
+                }
+            }
+        }
+        p {
+            width: fit-content;
+            margin-top: 28px;
+            font-size: $text16;
+            font-family: $body-font;
+            line-height: 1.5;
+        }
+        button {
+            @include action-button;
+            margin-top: 60px;
+        }
+    }
+    .advocate-photo {
+        position: relative;
+        margin: 0 26px;
+        height: fit-content;
+        & img {
+            max-width: 494px;
+            height: auto;
+            vertical-align: top;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            transform: rotate(6deg);
+            border: 1px solid $white;
+        }
+    }
+    .profile-contacts {
+        margin-top: 70px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        .profile-links {
+            width: fit-content;
+            padding: 0 50px;
+            display: flex;
+            gap: 24px;
+            & svg {
+                width: 26px;
+            }
+        }
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            position: relative;
+            height: 1px;
+            margin-top: 1.5%;
+            background: $white;
+        }
+        &::before {
+            min-width: 70%;
+        }
+        &::after {
+            width: 100%;
+        }
+    }
+}

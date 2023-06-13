@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Raleway:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: 1; }
+
+button {
+  background: none;
+  border: none; }
+  button:hover {
+    cursor: pointer; }
+
+input {
+  border: none;
+  outline: none; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+  a:hover {
+    cursor: pointer; }
+
+li {
+  list-style: none; }
+
+svg {
+  height: auto; }
+
+.b {
+  border: 2px red solid; }
+
+.container {
+  max-width: 1090px;
+  margin: 0 auto; }
+
+.introduction {
+  color: #ffffff;
+  height: 95vh;
+  position: relative; }
+  .introduction::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("./assets/top-section-bg.png");
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat; }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  border-bottom: 1px solid #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700; }
+  .navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 61px; }
+    .navbar .logo img {
+      max-width: 40px;
+      border-radius: 30%;
+      box-sizing: content-box; }
+  .navbar .anchors {
+    display: flex;
+    gap: 65px; }
+  .navbar .phone a {
+    font-family: "Bitter", serif; }
+
+.profile {
+  padding: 76px 0; }
+  .profile .advocate-info {
+    display: flex;
+    justify-content: space-between; }
+  .profile article {
+    font-weight: 700; }
+    .profile article h1 {
+      font-family: "Bitter", serif;
+      font-size: 32px; }
+      .profile article h1 span {
+        display: inline-block;
+        font-size: 48px;
+        margin-bottom: 20px;
+        position: relative; }
+        .profile article h1 span::before {
+          content: "";
+          position: absolute;
+          bottom: -14%;
+          left: 0;
+          z-index: -1;
+          width: 114%;
+          height: 26px;
+          background: #087535; }
+    .profile article p {
+      width: fit-content;
+      margin-top: 28px;
+      font-size: 16px;
+      font-family: "Raleway", sans-serif;
+      line-height: 1.5; }
+    .profile article button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-family: "Raleway", sans-serif;
+      background-color: #ffffff;
+      color: #05421e;
+      font-weight: 700;
+      padding: 16px 30px;
+      margin-top: 60px; }
+  .profile .advocate-photo {
+    position: relative;
+    margin: 0 26px;
+    height: fit-content; }
+    .profile .advocate-photo img {
+      max-width: 494px;
+      height: auto;
+      vertical-align: top; }
+    .profile .advocate-photo::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      transform: rotate(6deg);
+      border: 1px solid #ffffff; }
+  .profile .profile-contacts {
+    margin-top: 70px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap; }
+    .profile .profile-contacts .profile-links {
+      width: fit-content;
+      padding: 0 50px;
+      display: flex;
+      gap: 24px; }
+      .profile .profile-contacts .profile-links svg {
+        width: 26px; }
+    .profile .profile-contacts::before, .profile .profile-contacts::after {
+      content: "";
+      display: block;
+      position: relative;
+      height: 1px;
+      margin-top: 1.5%;
+      background: #ffffff; }
+    .profile .profile-contacts::before {
+      min-width: 70%; }
+    .profile .profile-contacts::after {
+      width: 100%; }
+
+/*# sourceMappingURL=styles.css.map */
