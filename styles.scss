@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Raleway:wght@400;700&display=swap");
 
 $white: #ffffff;
+$black: #242824;
 $transparent75: rgba(0, 0, 0, 0.75);
+$transparent25: rgba(0, 0, 0, 0.25);
 $title-font: "Bitter", serif;
 $body-font: "Raleway", sans-serif;
 $text48: 48px;
@@ -10,6 +12,7 @@ $text32: 32px;
 $text24: 24px;
 $text16: 16px;
 $text14: 14px;
+$bold: 700;
 $green-dark: #087535;
 $green-light: #d7fadb;
 $button-text-color: #05421e;
@@ -22,8 +25,26 @@ $button-text-color: #05421e;
     font-family: $body-font;
     background-color: $white;
     color: $button-text-color;
-    font-weight: 700;
+    font-weight: $bold;
     padding: 16px 30px;
+}
+
+@mixin box-frame($color) {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        transform: rotate(6deg);
+        border: 1px solid $color;
+    }
+}
+
+@mixin text-strip($leftOffset) {
 }
 
 * {
@@ -78,6 +99,23 @@ svg {
     margin: 0 auto;
 }
 
+.section-title {
+    font-size: $text36;
+    font-weight: $bold;
+    position: relative;
+    width: max-content;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+        z-index: -1;
+        width: 100%;
+        height: 8px;
+        background: $green-dark;
+    }
+}
+
 .introduction {
     color: $white;
     height: 95vh;
@@ -89,7 +127,8 @@ svg {
         position: absolute;
         inset: 0;
         z-index: -2;
-        background-image: linear-gradient($transparent75, $transparent75), url("./assets/top-section-bg.png");
+        background-image: linear-gradient($transparent75, $transparent75),
+            url("./assets/top-section-bg.png");
         background-size: cover;
         background-position: left;
         background-repeat: no-repeat;
@@ -102,7 +141,7 @@ svg {
     padding: 22px 0;
     border-bottom: 1px solid $white;
     font-family: $body-font;
-    font-weight: 700;
+    font-weight: $bold;
     .logo {
         display: flex;
         align-items: center;
@@ -121,7 +160,6 @@ svg {
         font-family: $title-font;
     }
 }
-
 .profile {
     padding: 76px 0;
     .advocate-info {
@@ -129,7 +167,7 @@ svg {
         justify-content: space-between;
     }
     article {
-        font-weight: 700;
+        font-weight: $bold;
         h1 {
             font-family: $title-font;
             font-size: $text32;
@@ -163,7 +201,7 @@ svg {
         }
     }
     .advocate-photo {
-        position: relative;
+        @include box-frame($white);
         margin: 0 26px;
         height: fit-content;
         & img {
@@ -171,24 +209,25 @@ svg {
             height: auto;
             vertical-align: top;
         }
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-            transform: rotate(6deg);
-            border: 1px solid $white;
-        }
     }
     .profile-contacts {
         margin-top: 70px;
         width: 100%;
-        height: 100%;
         display: flex;
         flex-wrap: nowrap;
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            transform: translateY(-50%);
+            border-bottom: 1px solid $white;
+        }
+        &::before {
+            min-width: 70%;
+        }
+        &::after {
+            width: 100%;
+        }
         .profile-links {
             width: fit-content;
             padding: 0 50px;
@@ -198,20 +237,89 @@ svg {
                 width: 26px;
             }
         }
-        &::before,
-        &::after {
-            content: "";
-            display: block;
+    }
+}
+.services {
+    margin-top: 59px;
+    margin-bottom: 72px;
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 60%;
+        z-index: -3;
+        background-image: linear-gradient($transparent75, $transparent75),
+            url("./assets/top-section-bg.png");
+    }
+}
+.categories {
+    margin-top: 93px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 110px 85px;
+}
+.category-card {
+    @include box-frame($green-dark);
+    background: $white;
+    width: 462px;
+    min-height: 328px;
+    box-shadow: 0px 4px 8px $transparent25;
+    padding: 18px 34px 35px;
+    h3 {
+        font-size: $text24;
+        font-family: 700;
+        font-family: $title-font;
+        width: max-content;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 1.2;
+        letter-spacing: 0.04em;
+    }
+    ul {
+        margin-top: 18px;
+        li + li {
+            margin-top: 10px;
+        }
+        li {
             position: relative;
-            height: 1px;
-            margin-top: 1.5%;
-            background: $white;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -22px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: $green-dark;
+            }
         }
-        &::before {
-            min-width: 70%;
+    }
+}
+.consultation {
+    padding-top: 60px;
+    color: $white;
+    background: $black;
+    h2 {
+        text-align: center;
+        font-size: $text36;
+        font-family: $title-font;
+        margin-bottom: 45px;
+        span {
+            color: red;
         }
-        &::after {
-            width: 100%;
-        }
+    }
+}
+.consultation-list {
+    h3 {
+        font-size: $text24;
+        font-weight: $bold;
+        font-family: $title-font;
     }
 }
