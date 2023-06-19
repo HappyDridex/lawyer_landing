@@ -2,14 +2,18 @@
 
 $white: #ffffff;
 $black: #242824;
-$transparent75: rgba(0, 0, 0, 0.75);
 $transparent25: rgba(0, 0, 0, 0.25);
+$transparent75: rgba(0, 0, 0, 0.75);
+$transparent85: rgba(0, 0, 0, 0.85);
+$transparent90: rgba(0, 0, 0, 0.9);
+$transparent95: rgba(0, 0, 0, 0.95);
 $title-font: "Bitter", serif;
 $body-font: "Raleway", sans-serif;
 $text48: 48px;
 $text36: 36px;
 $text32: 32px;
 $text24: 24px;
+$text20: 20px;
 $text16: 16px;
 $text14: 14px;
 $bold: 700;
@@ -44,13 +48,53 @@ $button-text-color: #05421e;
     }
 }
 
-@mixin text-strip($leftOffset) {
+@mixin green-text-strip($width, $leftOffset) {
+    position: relative;
+    z-index: 0;
+    &::before {
+        content: "";
+        position: absolute;
+        left: $leftOffset;
+        height: 26px;
+        background: $green-dark;
+        z-index: -1;
+        bottom: -14%;
+        width: $width;
+    }
+}
+
+@mixin frames-around-number {
+    position: relative;
+    z-index: 0;
+    &::before,
+    &::after {
+        width: 35px;
+        height: 35px;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 2px solid;
+    }
+    &::before {
+        z-index: -2;
+        border-color: $green-dark;
+        transform: translate(-50%, -50%) rotate(60deg);
+    }
+    &::after {
+        z-index: -1;
+        border-color: $white;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+html {
+    // scroll-behavior: smooth;
 }
 h1,
 h2,
@@ -93,6 +137,10 @@ svg {
 .b {
     border: 2px red solid;
 }
+// ymaps hide copyright section
+[class*="copyrights-pane"] {
+    display: none !important;
+}
 
 .container {
     max-width: 1090px;
@@ -118,7 +166,6 @@ svg {
 
 .introduction {
     color: $white;
-    height: 95vh;
     position: relative;
     &::before {
         content: "";
@@ -127,13 +174,13 @@ svg {
         position: absolute;
         inset: 0;
         z-index: -2;
-        background-image: linear-gradient($transparent75, $transparent75),
-            url("./assets/top-section-bg.png");
+        background-image: linear-gradient($transparent75, $transparent75), url("./assets/images/top-section-bg.png");
         background-size: cover;
         background-position: left;
         background-repeat: no-repeat;
     }
 }
+
 .navbar {
     display: flex;
     align-items: center;
@@ -160,8 +207,11 @@ svg {
         font-family: $title-font;
     }
 }
+
 .profile {
     padding: 76px 0;
+    display: flex;
+    flex-direction: column;
     .advocate-info {
         display: flex;
         justify-content: space-between;
@@ -175,17 +225,7 @@ svg {
                 display: inline-block;
                 font-size: $text48;
                 margin-bottom: 20px;
-                position: relative;
-                &::before {
-                    content: "";
-                    position: absolute;
-                    bottom: -14%;
-                    left: 0;
-                    z-index: -1;
-                    width: 114%;
-                    height: 26px;
-                    background: $green-dark;
-                }
+                @include green-text-strip(114%, 0);
             }
         }
         p {
@@ -239,9 +279,11 @@ svg {
         }
     }
 }
+
 .services {
-    margin-top: 59px;
-    margin-bottom: 72px;
+    display: flex;
+    flex-direction: column;
+    padding: 59px 0 72px;
     position: relative;
     &::before {
         content: "";
@@ -253,27 +295,30 @@ svg {
         width: 80%;
         height: 60%;
         z-index: -3;
-        background-image: linear-gradient($transparent75, $transparent75),
-            url("./assets/top-section-bg.png");
+        background-image: linear-gradient($transparent75, $transparent75), url("./assets/images/top-section-bg.png");
+    }
+    h2 {
+        margin-bottom: 93px;
     }
 }
+
 .categories {
-    margin-top: 93px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 110px 85px;
 }
+
 .category-card {
     @include box-frame($green-dark);
     background: $white;
     width: 462px;
     min-height: 328px;
     box-shadow: 0px 4px 8px $transparent25;
-    padding: 18px 34px 35px;
+    padding: 18px 34px 35px 54px;
     h3 {
         font-size: $text24;
-        font-family: 700;
+        font-weight: $bold;
         font-family: $title-font;
         width: max-content;
         text-align: center;
@@ -293,7 +338,7 @@ svg {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                left: -22px;
+                left: -24px;
                 width: 10px;
                 height: 10px;
                 border-radius: 50%;
@@ -302,24 +347,275 @@ svg {
         }
     }
 }
+
 .consultation {
+    display: flex;
+    flex-direction: column;
     padding-top: 60px;
     color: $white;
     background: $black;
+    background-repeat: no-repeat;
+    background-size: cover;
     h2 {
         text-align: center;
         font-size: $text36;
         font-family: $title-font;
         margin-bottom: 45px;
         span {
-            color: red;
+            display: inline-block;
+            @include green-text-strip(105%, 10%);
         }
     }
 }
-.consultation-list {
+
+.consultation-body {
+    display: flex;
+    position: relative;
+}
+
+.consultation-info {
+    margin-left: 50px;
     h3 {
         font-size: $text24;
         font-weight: $bold;
         font-family: $title-font;
+        line-height: 1.5;
+        letter-spacing: 0.08rem;
     }
+    .consultation-list {
+        margin-top: 37px;
+        margin-left: 22px;
+        display: grid;
+        grid-template-columns: repeat(2, 300px);
+        column-gap: 44px;
+        width: fit-content;
+        ul {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            row-gap: 66px;
+        }
+        li {
+            font-size: $text14;
+            font-family: $body-font;
+            font-weight: $bold;
+            display: flex;
+            align-items: center;
+        }
+        span {
+            display: inline-block;
+            font-size: $text16;
+            font-family: $title-font;
+            margin-right: 33px;
+            @include frames-around-number;
+        }
+    }
+    button {
+        @include action-button;
+        margin-top: 70px;
+    }
+}
+
+.mockup {
+    img {
+        width: 294px;
+        height: auto;
+    }
+}
+
+.consultation-price {
+    position: absolute;
+    background: $white;
+    right: -45px;
+    bottom: 105px;
+    font-weight: $bold;
+    font-family: $body-font;
+    border: 1px solid $green-dark;
+    text-align: center;
+    padding: 18px 21px;
+    z-index: 0;
+    &::before {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: -4px;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: $green-dark;
+    }
+    p {
+        font-size: $text14;
+        span {
+            font-size: $text24;
+        }
+    }
+}
+
+.cases {
+    h2 {
+        margin-top: 60px;
+    }
+}
+
+.certificates {
+    margin: 70px 0;
+    padding: 40px 0;
+    position: relative;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100%;
+    }
+    &::before {
+        transform: translate(-50%, -50%) rotate(177deg);
+        width: 50%;
+        background: $green-light;
+    }
+    &::after {
+        transform: translate(-50%, -50%) rotate(2deg);
+        width: 55%;
+        border: 2px solid $green-dark;
+    }
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        & img {
+            width: 240px;
+        }
+    }
+    .swiper-buttons {
+        width: 100%;
+        position: absolute;
+        bottom: -30px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 42px;
+    }
+}
+
+.location {
+    background: $black;
+    font-weight: $bold;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    padding: 59px 0 95px;
+    h2 {
+        font-family: $title-font;
+        font-size: $text36;
+        margin-bottom: 42px;
+        span {
+            @include green-text-strip(100%, 10%);
+        }
+    }
+}
+
+.location-info {
+    border: 6px solid $green-dark;
+    .location-contacts {
+        font-size: $text16;
+        font-family: $body-font;
+        font-weight: $bold;
+        padding: 30px 47px;
+        display: flex;
+        > div {
+            width: 50%;
+        }
+        .location-working-mode {
+            display: flex;
+            flex-direction: column;
+            span {
+                line-height: 1.2;
+                display: inline-block;
+            }
+            span + span {
+                margin-top: 26px;
+            }
+        }
+    }
+}
+
+.footer {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    .contact-me {
+        display: flex;
+        flex-direction: column;
+        h4 {
+            margin-top: 44px;
+            font-size: $text24;
+            font-family: $title-font;
+            position: relative;
+            line-height: 1.5;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background: $green-dark;
+            }
+        }
+        > a,
+        > p {
+            display: inline-block;
+            font-size: $text16;
+            font-family: $body-font;
+            font-weight: $bold;
+            margin-top: 34px;
+        }
+        .messengers {
+            margin-top: 30px;
+            a {
+                display: inline-block;
+                padding: 5px;
+                margin-right: 10px;
+            }
+        }
+    }
+    form {
+        border: 2px solid $green-dark;
+        width: 442px;
+        padding: 52px 37px;
+        display: flex;
+        flex-direction: column;
+        h4 {
+            font-family: $title-font;
+            font-size: $text24;
+            font-weight: $bold;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 34px;
+        }
+        input {
+            font-size: $text20;
+            height: 52px;
+            width: 100%;
+            border-bottom: 1px solid $black;
+        }
+        input + input {
+            margin-top: 44px;
+        }
+        button {
+            margin-top: 70px;
+            padding: 16px 40px;
+            background: $green-light;
+            font-size: $text16;
+            font-weight: $bold;
+            font-family: $body-font;
+        }
+    }
+}
+
+.docs {
+    height: 90px;
+    width: 100%;
+    background: $black;
 }
