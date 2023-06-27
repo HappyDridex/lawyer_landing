@@ -21,6 +21,9 @@ $green-dark: #087535;
 $green-light: #d7fadb;
 $button-text-color: #05421e;
 
+$breakpoint1: 1280px;
+$breakpoint2: 768px;
+
 @mixin action-button {
     display: flex;
     align-items: center;
@@ -31,6 +34,10 @@ $button-text-color: #05421e;
     color: $button-text-color;
     font-weight: $bold;
     padding: 16px 30px;
+    @media (max-width: $breakpoint1) {
+        font-size: $text14;
+        padding: 12px 20px;
+    }
 }
 
 @mixin box-frame($color) {
@@ -45,6 +52,8 @@ $button-text-color: #05421e;
         height: 100%;
         transform: rotate(6deg);
         border: 1px solid $color;
+        @media (max-width: $breakpoint2) {
+        }
     }
 }
 
@@ -145,6 +154,9 @@ svg {
 .container {
     max-width: 1090px;
     margin: 0 auto;
+    @media (max-width: $breakpoint1) {
+        width: auto;
+    }
 }
 
 .section-title {
@@ -152,6 +164,12 @@ svg {
     font-weight: $bold;
     position: relative;
     width: max-content;
+    @media (max-width: $breakpoint1) {
+        font-size: $text32;
+        width: fit-content;
+        margin: 0 auto;
+        text-align: center;
+    }
     &::after {
         content: "";
         position: absolute;
@@ -189,22 +207,51 @@ svg {
     border-bottom: 1px solid $white;
     font-family: $body-font;
     font-weight: $bold;
+    @media (max-width: $breakpoint1) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        grid-template-areas:
+            "logo  phone phone"
+            "anchors anchors anchors";
+        margin: 0 30px;
+    }
+    @media (max-width: $breakpoint2) {
+        margin: 0 15px;
+    }
     .logo {
         display: flex;
         align-items: center;
         gap: 61px;
+        grid-area: logo;
+        @media (max-width: $breakpoint1) {
+            gap: 30px;
+            justify-self: start;
+        }
         & img {
             max-width: 40px;
+            height: auto;
             border-radius: 30%;
-            box-sizing: content-box;
         }
     }
     .anchors {
         display: flex;
+        justify-content: center;
         gap: 65px;
+        grid-area: anchors;
+        @media (max-width: $breakpoint1) {
+            gap: 45px;
+            justify-items: center;
+        }
     }
-    .phone a {
-        font-family: $title-font;
+    .phone {
+        grid-area: phone;
+        @media (max-width: $breakpoint1) {
+            justify-self: end;
+        }
+        a {
+            font-family: $title-font;
+        }
     }
 }
 
@@ -212,20 +259,47 @@ svg {
     padding: 76px 0;
     display: flex;
     flex-direction: column;
+    @media (max-width: $breakpoint1) {
+        padding: 40px 30px;
+        margin: 0 auto;
+    }
+    @media (max-width: $breakpoint2) {
+        padding: 40px 15px;
+    }
     .advocate-info {
         display: flex;
         justify-content: space-between;
+        @media (max-width: $breakpoint2) {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "description"
+                "photo"
+                "get-consultation-mobile";
+            margin: 0 auto;
+        }
     }
     article {
+        flex-shrink: 1;
         font-weight: $bold;
+        grid-area: description;
+        @media (max-width: $breakpoint2) {
+            margin-left: 20px;
+        }
         h1 {
             font-family: $title-font;
             font-size: $text32;
+            @media (max-width: $breakpoint1) {
+                font-size: $text24;
+            }
             span {
+                @include green-text-strip(114%, 0);
                 display: inline-block;
                 font-size: $text48;
                 margin-bottom: 20px;
-                @include green-text-strip(114%, 0);
+                @media (max-width: $breakpoint1) {
+                    font-size: $text36;
+                }
             }
         }
         p {
@@ -234,20 +308,51 @@ svg {
             font-size: $text16;
             font-family: $body-font;
             line-height: 1.5;
+            @media (max-width: $breakpoint1) {
+                font-size: $text14;
+            }
+        }
+        a {
+            @media (max-width: $breakpoint2) {
+                display: none;
+            }
         }
         button {
             @include action-button;
             margin-top: 60px;
+            @media (max-width: $breakpoint1) {
+                margin-top: 50px;
+            }
         }
     }
+    .mobile-btn-get-consultation {
+        display: none;
+        grid-area: get-consultation-mobile;
+        @media (max-width: $breakpoint2) {
+            @include action-button;
+            margin: 60px auto 0 auto;
+            width: 250px;
+        }
+    }
+
     .advocate-photo {
         @include box-frame($white);
         margin: 0 26px;
         height: fit-content;
+        grid-area: photo;
+        @media (max-width: $breakpoint1) {
+            width: fit-content;
+        }
+        @media (max-width: $breakpoint2) {
+            margin-top: 40px;
+        }
         & img {
             max-width: 494px;
             height: auto;
             vertical-align: top;
+            @media (max-width: $breakpoint1) {
+                max-width: 100%;
+            }
         }
     }
     .profile-contacts {
@@ -264,17 +369,30 @@ svg {
         }
         &::before {
             min-width: 70%;
+            @media (max-width: $breakpoint2) {
+                min-width: 50%;
+            }
         }
         &::after {
             width: 100%;
+        }
+        @media (max-width: $breakpoint2) {
+            margin-top: 50px;
         }
         .profile-links {
             width: fit-content;
             padding: 0 50px;
             display: flex;
             gap: 24px;
+            @media (max-width: $breakpoint1) {
+                gap: 18px;
+                padding: 0 25px;
+            }
             & svg {
                 width: 26px;
+                @media (max-width: $breakpoint1) {
+                    width: 22px;
+                }
             }
         }
     }
@@ -297,6 +415,9 @@ svg {
         z-index: -3;
         background-image: linear-gradient($transparent75, $transparent75), url("./assets/images/top-section-bg.png");
     }
+    @media (max-width: $breakpoint1) {
+        margin: 0 auto;
+    }
     h2 {
         margin-bottom: 93px;
     }
@@ -307,6 +428,9 @@ svg {
     flex-wrap: wrap;
     justify-content: center;
     gap: 110px 85px;
+    @media (max-width: $breakpoint2) {
+        gap: 50px 0;
+    }
 }
 
 .category-card {
@@ -316,6 +440,10 @@ svg {
     min-height: 328px;
     box-shadow: 0px 4px 8px $transparent25;
     padding: 18px 34px 35px 54px;
+    @media (max-width: $breakpoint2) {
+        max-width: auto;
+        margin: 0 30px;
+    }
     h3 {
         font-size: $text24;
         font-weight: $bold;
@@ -353,14 +481,22 @@ svg {
     flex-direction: column;
     padding-top: 60px;
     color: $white;
-    background: $black;
+    background: linear-gradient($transparent75, $transparent75), url("./assets/images/consultation-seation-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom;
     h2 {
         text-align: center;
         font-size: $text36;
         font-family: $title-font;
         margin-bottom: 45px;
+        @media (max-width: $breakpoint1) {
+            font-size: $text32;
+        }
+        @media (max-width: $breakpoint2) {
+            width: 80%;
+            margin: 0 auto;
+        }
         span {
             display: inline-block;
             @include green-text-strip(105%, 10%);
@@ -370,17 +506,38 @@ svg {
 
 .consultation-body {
     display: flex;
-    position: relative;
+    flex-wrap: wrap;
+    @media (max-width: $breakpoint1) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "mockup"
+            "info";
+        width: fit-content;
+        margin: 0 auto;
+    }
+    @media (max-width: $breakpoint2) {
+        padding: 0 20px 30px 20px;
+        margin-top: 30px;
+    }
 }
 
 .consultation-info {
     margin-left: 50px;
+    grid-area: info;
     h3 {
         font-size: $text24;
         font-weight: $bold;
         font-family: $title-font;
         line-height: 1.5;
         letter-spacing: 0.08rem;
+        @media (max-width: $breakpoint2) {
+            margin: 0 auto;
+            width: fit-content;
+        }
+    }
+    @media (max-width: $breakpoint1) {
+        margin-left: 0;
     }
     .consultation-list {
         margin-top: 37px;
@@ -389,11 +546,23 @@ svg {
         grid-template-columns: repeat(2, 300px);
         column-gap: 44px;
         width: fit-content;
+        @media (max-width: $breakpoint1) {
+            grid-template-columns: repeat(2, minmax(1fr, 350px));
+        }
+        @media (max-width: $breakpoint2) {
+            margin-top: 45px;
+            grid-template-columns: 1fr;
+        }
         ul {
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(3, 1fr);
             row-gap: 66px;
+        }
+        ul + ul {
+            @media (max-width: $breakpoint2) {
+                margin-top: 64px;
+            }
         }
         li {
             font-size: $text14;
@@ -413,13 +582,24 @@ svg {
     button {
         @include action-button;
         margin-top: 70px;
+        @media (max-width: $breakpoint1) {
+            margin: 72px auto 0 auto;
+        }
     }
 }
 
 .mockup {
+    position: relative;
+    grid-area: mockup;
     img {
         width: 294px;
         height: auto;
+        @media (max-width: $breakpoint2) {
+            width: 100%;
+        }
+    }
+    @media (max-width: $breakpoint1) {
+        justify-self: center;
     }
 }
 
@@ -480,6 +660,12 @@ svg {
         width: 55%;
         border: 2px solid $green-dark;
     }
+    @media (max-width: $breakpoint1) {
+        margin: 50px 0;
+    }
+    @media (max-width: $breakpoint2) {
+        margin: 30px 0;
+    }
     .swiper-slide {
         display: flex;
         justify-content: center;
@@ -504,7 +690,13 @@ svg {
     color: $white;
     display: flex;
     flex-direction: column;
-    padding: 59px 0 95px;
+    padding: 59px 120px 95px;
+    @media (max-width: $breakpoint1) {
+        padding: 30px;
+    }
+    @media (max-width: $breakpoint1) {
+        padding: 30px 10px;
+    }
     h2 {
         font-family: $title-font;
         font-size: $text36;
@@ -512,19 +704,34 @@ svg {
         span {
             @include green-text-strip(100%, 10%);
         }
+        @media (max-width: $breakpoint1) {
+            width: fit-content;
+            margin: 0 auto 30px auto;
+        }
     }
 }
 
 .location-info {
+    width: 100%;
     border: 6px solid $green-dark;
+    @media (max-width: $breakpoint1) {
+        margin: 0 auto;
+    }
     .location-contacts {
         font-size: $text16;
         font-family: $body-font;
         font-weight: $bold;
         padding: 30px 47px;
         display: flex;
+        gap: 30px;
+        @media (max-width: $breakpoint2) {
+            flex-direction: column;
+        }
         > div {
             width: 50%;
+            @media (max-width: $breakpoint2) {
+                width: 100%;
+            }
         }
         .location-working-mode {
             display: flex;
@@ -544,9 +751,20 @@ svg {
     padding: 60px 0;
     display: flex;
     justify-content: space-between;
+    @media (max-width: $breakpoint1) {
+        flex-direction: column;
+        align-items: center;
+    }
     .contact-me {
         display: flex;
         flex-direction: column;
+        @media (max-width: $breakpoint1) {
+            align-items: center;
+            margin: 0 auto;
+        }
+        @media (max-width: $breakpoint2) {
+            margin: 0 15px;
+        }
         h4 {
             margin-top: 44px;
             font-size: $text24;
@@ -562,6 +780,11 @@ svg {
                 height: 2px;
                 background: $green-dark;
             }
+            @media (max-width: $breakpoint2) {
+                padding: 0 20px;
+                width: 80%;
+                text-align: center;
+            }
         }
         > a,
         > p {
@@ -570,6 +793,9 @@ svg {
             font-family: $body-font;
             font-weight: $bold;
             margin-top: 34px;
+            @media (max-width: $breakpoint2) {
+                text-align: center;
+            }
         }
         .messengers {
             margin-top: 30px;
@@ -586,6 +812,14 @@ svg {
         padding: 52px 37px;
         display: flex;
         flex-direction: column;
+        @media (max-width: $breakpoint1) {
+            margin: 30px auto 0 auto;
+            width: auto;
+        }
+        @media (max-width: $breakpoint1) {
+            margin: 30px 15px 0 15px;
+            padding: 22px 27px;
+        }
         h4 {
             font-family: $title-font;
             font-size: $text24;

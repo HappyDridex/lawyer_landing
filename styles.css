@@ -48,12 +48,21 @@ svg {
 .container {
   max-width: 1090px;
   margin: 0 auto; }
+  @media (max-width: 1280px) {
+    .container {
+      width: auto; } }
 
 .section-title {
   font-size: 36px;
   font-weight: 700;
   position: relative;
   width: max-content; }
+  @media (max-width: 1280px) {
+    .section-title {
+      font-size: 32px;
+      width: fit-content;
+      margin: 0 auto;
+      text-align: center; } }
   .section-title::after {
     content: "";
     position: absolute;
@@ -87,38 +96,85 @@ svg {
   border-bottom: 1px solid #ffffff;
   font-family: "Raleway", sans-serif;
   font-weight: 700; }
+  @media (max-width: 1280px) {
+    .navbar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      grid-template-areas: "logo  phone phone" "anchors anchors anchors";
+      margin: 0 30px; } }
+  @media (max-width: 768px) {
+    .navbar {
+      margin: 0 15px; } }
   .navbar .logo {
     display: flex;
     align-items: center;
-    gap: 61px; }
+    gap: 61px;
+    grid-area: logo; }
+    @media (max-width: 1280px) {
+      .navbar .logo {
+        gap: 30px;
+        justify-self: start; } }
     .navbar .logo img {
       max-width: 40px;
-      border-radius: 30%;
-      box-sizing: content-box; }
+      height: auto;
+      border-radius: 30%; }
   .navbar .anchors {
     display: flex;
-    gap: 65px; }
-  .navbar .phone a {
-    font-family: "Bitter", serif; }
+    justify-content: center;
+    gap: 65px;
+    grid-area: anchors; }
+    @media (max-width: 1280px) {
+      .navbar .anchors {
+        gap: 45px;
+        justify-items: center; } }
+  .navbar .phone {
+    grid-area: phone; }
+    @media (max-width: 1280px) {
+      .navbar .phone {
+        justify-self: end; } }
+    .navbar .phone a {
+      font-family: "Bitter", serif; }
 
 .profile {
   padding: 76px 0;
   display: flex;
   flex-direction: column; }
+  @media (max-width: 1280px) {
+    .profile {
+      padding: 40px 30px;
+      margin: 0 auto; } }
+  @media (max-width: 768px) {
+    .profile {
+      padding: 40px 15px; } }
   .profile .advocate-info {
     display: flex;
     justify-content: space-between; }
+    @media (max-width: 768px) {
+      .profile .advocate-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "description" "photo" "get-consultation-mobile";
+        margin: 0 auto; } }
   .profile article {
-    font-weight: 700; }
+    flex-shrink: 1;
+    font-weight: 700;
+    grid-area: description; }
+    @media (max-width: 768px) {
+      .profile article {
+        margin-left: 20px; } }
     .profile article h1 {
       font-family: "Bitter", serif;
       font-size: 32px; }
+      @media (max-width: 1280px) {
+        .profile article h1 {
+          font-size: 24px; } }
       .profile article h1 span {
+        position: relative;
+        z-index: 0;
         display: inline-block;
         font-size: 48px;
-        margin-bottom: 20px;
-        position: relative;
-        z-index: 0; }
+        margin-bottom: 20px; }
         .profile article h1 span::before {
           content: "";
           position: absolute;
@@ -128,12 +184,21 @@ svg {
           z-index: -1;
           bottom: -14%;
           width: 114%; }
+        @media (max-width: 1280px) {
+          .profile article h1 span {
+            font-size: 36px; } }
     .profile article p {
       width: fit-content;
       margin-top: 28px;
       font-size: 16px;
       font-family: "Raleway", sans-serif;
       line-height: 1.5; }
+      @media (max-width: 1280px) {
+        .profile article p {
+          font-size: 14px; } }
+    @media (max-width: 768px) {
+      .profile article a {
+        display: none; } }
     .profile article button {
       display: flex;
       align-items: center;
@@ -145,10 +210,39 @@ svg {
       font-weight: 700;
       padding: 16px 30px;
       margin-top: 60px; }
+      @media (max-width: 1280px) {
+        .profile article button {
+          font-size: 14px;
+          padding: 12px 20px; } }
+      @media (max-width: 1280px) {
+        .profile article button {
+          margin-top: 50px; } }
+  .profile .mobile-btn-get-consultation {
+    display: none;
+    grid-area: get-consultation-mobile; }
+    @media (max-width: 768px) {
+      .profile .mobile-btn-get-consultation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-family: "Raleway", sans-serif;
+        background-color: #ffffff;
+        color: #05421e;
+        font-weight: 700;
+        padding: 16px 30px;
+        margin: 60px auto 0 auto;
+        width: 250px; } }
+  @media (max-width: 768px) and (max-width: 1280px) {
+    .profile .mobile-btn-get-consultation {
+      font-size: 14px;
+      padding: 12px 20px; } }
+
   .profile .advocate-photo {
     position: relative;
     margin: 0 26px;
-    height: fit-content; }
+    height: fit-content;
+    grid-area: photo; }
     .profile .advocate-photo::before {
       content: "";
       position: absolute;
@@ -159,10 +253,19 @@ svg {
       height: 100%;
       transform: rotate(6deg);
       border: 1px solid #ffffff; }
+    @media (max-width: 1280px) {
+      .profile .advocate-photo {
+        width: fit-content; } }
+    @media (max-width: 768px) {
+      .profile .advocate-photo {
+        margin-top: 40px; } }
     .profile .advocate-photo img {
       max-width: 494px;
       height: auto;
       vertical-align: top; }
+      @media (max-width: 1280px) {
+        .profile .advocate-photo img {
+          max-width: 100%; } }
   .profile .profile-contacts {
     margin-top: 70px;
     width: 100%;
@@ -175,15 +278,28 @@ svg {
       border-bottom: 1px solid #ffffff; }
     .profile .profile-contacts::before {
       min-width: 70%; }
+      @media (max-width: 768px) {
+        .profile .profile-contacts::before {
+          min-width: 50%; } }
     .profile .profile-contacts::after {
       width: 100%; }
+    @media (max-width: 768px) {
+      .profile .profile-contacts {
+        margin-top: 50px; } }
     .profile .profile-contacts .profile-links {
       width: fit-content;
       padding: 0 50px;
       display: flex;
       gap: 24px; }
+      @media (max-width: 1280px) {
+        .profile .profile-contacts .profile-links {
+          gap: 18px;
+          padding: 0 25px; } }
       .profile .profile-contacts .profile-links svg {
         width: 26px; }
+        @media (max-width: 1280px) {
+          .profile .profile-contacts .profile-links svg {
+            width: 22px; } }
 
 .services {
   display: flex;
@@ -201,6 +317,9 @@ svg {
     height: 60%;
     z-index: -3;
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("./assets/images/top-section-bg.png"); }
+  @media (max-width: 1280px) {
+    .services {
+      margin: 0 auto; } }
   .services h2 {
     margin-bottom: 93px; }
 
@@ -209,6 +328,9 @@ svg {
   flex-wrap: wrap;
   justify-content: center;
   gap: 110px 85px; }
+  @media (max-width: 768px) {
+    .categories {
+      gap: 50px 0; } }
 
 .category-card {
   position: relative;
@@ -227,6 +349,10 @@ svg {
     height: 100%;
     transform: rotate(6deg);
     border: 1px solid #087535; }
+  @media (max-width: 768px) {
+    .category-card {
+      max-width: auto;
+      margin: 0 30px; } }
   .category-card h3 {
     font-size: 24px;
     font-weight: 700;
@@ -258,14 +384,22 @@ svg {
   flex-direction: column;
   padding-top: 60px;
   color: #ffffff;
-  background: #242824;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("./assets/images/consultation-seation-bg.png");
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  background-position: bottom; }
   .consultation h2 {
     text-align: center;
     font-size: 36px;
     font-family: "Bitter", serif;
     margin-bottom: 45px; }
+    @media (max-width: 1280px) {
+      .consultation h2 {
+        font-size: 32px; } }
+    @media (max-width: 768px) {
+      .consultation h2 {
+        width: 80%;
+        margin: 0 auto; } }
     .consultation h2 span {
       display: inline-block;
       position: relative;
@@ -282,16 +416,35 @@ svg {
 
 .consultation-body {
   display: flex;
-  position: relative; }
+  flex-wrap: wrap; }
+  @media (max-width: 1280px) {
+    .consultation-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: "mockup" "info";
+      width: fit-content;
+      margin: 0 auto; } }
+  @media (max-width: 768px) {
+    .consultation-body {
+      padding: 0 20px 30px 20px;
+      margin-top: 30px; } }
 
 .consultation-info {
-  margin-left: 50px; }
+  margin-left: 50px;
+  grid-area: info; }
   .consultation-info h3 {
     font-size: 24px;
     font-weight: 700;
     font-family: "Bitter", serif;
     line-height: 1.5;
     letter-spacing: 0.08rem; }
+    @media (max-width: 768px) {
+      .consultation-info h3 {
+        margin: 0 auto;
+        width: fit-content; } }
+  @media (max-width: 1280px) {
+    .consultation-info {
+      margin-left: 0; } }
   .consultation-info .consultation-list {
     margin-top: 37px;
     margin-left: 22px;
@@ -299,11 +452,21 @@ svg {
     grid-template-columns: repeat(2, 300px);
     column-gap: 44px;
     width: fit-content; }
+    @media (max-width: 1280px) {
+      .consultation-info .consultation-list {
+        grid-template-columns: repeat(2, minmax(1fr, 350px)); } }
+    @media (max-width: 768px) {
+      .consultation-info .consultation-list {
+        margin-top: 45px;
+        grid-template-columns: 1fr; } }
     .consultation-info .consultation-list ul {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(3, 1fr);
       row-gap: 66px; }
+    @media (max-width: 768px) {
+      .consultation-info .consultation-list ul + ul {
+        margin-top: 64px; } }
     .consultation-info .consultation-list li {
       font-size: 14px;
       font-family: "Raleway", sans-serif;
@@ -344,10 +507,26 @@ svg {
     font-weight: 700;
     padding: 16px 30px;
     margin-top: 70px; }
+    @media (max-width: 1280px) {
+      .consultation-info button {
+        font-size: 14px;
+        padding: 12px 20px; } }
+    @media (max-width: 1280px) {
+      .consultation-info button {
+        margin: 72px auto 0 auto; } }
 
-.mockup img {
-  width: 294px;
-  height: auto; }
+.mockup {
+  position: relative;
+  grid-area: mockup; }
+  .mockup img {
+    width: 294px;
+    height: auto; }
+    @media (max-width: 768px) {
+      .mockup img {
+        width: 100%; } }
+  @media (max-width: 1280px) {
+    .mockup {
+      justify-self: center; } }
 
 .consultation-price {
   position: absolute;
@@ -395,6 +574,12 @@ svg {
     transform: translate(-50%, -50%) rotate(2deg);
     width: 55%;
     border: 2px solid #087535; }
+  @media (max-width: 1280px) {
+    .certificates {
+      margin: 50px 0; } }
+  @media (max-width: 768px) {
+    .certificates {
+      margin: 30px 0; } }
   .certificates .swiper-slide {
     display: flex;
     justify-content: center;
@@ -415,7 +600,13 @@ svg {
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  padding: 59px 0 95px; }
+  padding: 59px 120px 95px; }
+  @media (max-width: 1280px) {
+    .location {
+      padding: 30px; } }
+  @media (max-width: 1280px) {
+    .location {
+      padding: 30px 10px; } }
   .location h2 {
     font-family: "Bitter", serif;
     font-size: 36px;
@@ -432,17 +623,32 @@ svg {
         z-index: -1;
         bottom: -14%;
         width: 100%; }
+    @media (max-width: 1280px) {
+      .location h2 {
+        width: fit-content;
+        margin: 0 auto 30px auto; } }
 
 .location-info {
+  width: 100%;
   border: 6px solid #087535; }
+  @media (max-width: 1280px) {
+    .location-info {
+      margin: 0 auto; } }
   .location-info .location-contacts {
     font-size: 16px;
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     padding: 30px 47px;
-    display: flex; }
+    display: flex;
+    gap: 30px; }
+    @media (max-width: 768px) {
+      .location-info .location-contacts {
+        flex-direction: column; } }
     .location-info .location-contacts > div {
       width: 50%; }
+      @media (max-width: 768px) {
+        .location-info .location-contacts > div {
+          width: 100%; } }
     .location-info .location-contacts .location-working-mode {
       display: flex;
       flex-direction: column; }
@@ -456,9 +662,20 @@ svg {
   padding: 60px 0;
   display: flex;
   justify-content: space-between; }
+  @media (max-width: 1280px) {
+    .footer {
+      flex-direction: column;
+      align-items: center; } }
   .footer .contact-me {
     display: flex;
     flex-direction: column; }
+    @media (max-width: 1280px) {
+      .footer .contact-me {
+        align-items: center;
+        margin: 0 auto; } }
+    @media (max-width: 768px) {
+      .footer .contact-me {
+        margin: 0 15px; } }
     .footer .contact-me h4 {
       margin-top: 44px;
       font-size: 24px;
@@ -473,6 +690,11 @@ svg {
         width: 100%;
         height: 2px;
         background: #087535; }
+      @media (max-width: 768px) {
+        .footer .contact-me h4 {
+          padding: 0 20px;
+          width: 80%;
+          text-align: center; } }
     .footer .contact-me > a,
     .footer .contact-me > p {
       display: inline-block;
@@ -480,6 +702,10 @@ svg {
       font-family: "Raleway", sans-serif;
       font-weight: 700;
       margin-top: 34px; }
+      @media (max-width: 768px) {
+        .footer .contact-me > a,
+        .footer .contact-me > p {
+          text-align: center; } }
     .footer .contact-me .messengers {
       margin-top: 30px; }
       .footer .contact-me .messengers a {
@@ -492,6 +718,14 @@ svg {
     padding: 52px 37px;
     display: flex;
     flex-direction: column; }
+    @media (max-width: 1280px) {
+      .footer form {
+        margin: 30px auto 0 auto;
+        width: auto; } }
+    @media (max-width: 1280px) {
+      .footer form {
+        margin: 30px 15px 0 15px;
+        padding: 22px 27px; } }
     .footer form h4 {
       font-family: "Bitter", serif;
       font-size: 24px;
