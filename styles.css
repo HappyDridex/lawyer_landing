@@ -128,6 +128,13 @@ svg {
       .navbar .anchors {
         gap: 45px;
         justify-items: center; } }
+    .navbar .anchors li a {
+      transition: all 0.3s ease-out;
+      transition-delay: 0.1s;
+      display: block;
+      padding: 5px 8px; }
+      .navbar .anchors li a:hover {
+        transform: scale(1.1); }
   .navbar .phone {
     grid-area: phone; }
     @media (max-width: 1280px) {
@@ -157,12 +164,14 @@ svg {
         grid-template-areas: "description" "photo" "get-consultation-mobile";
         margin: 0 auto; } }
   .profile article {
-    flex-shrink: 1;
+    flex-shrink: 0;
+    width: 40%;
     font-weight: 700;
     grid-area: description; }
     @media (max-width: 768px) {
       .profile article {
-        margin-left: 20px; } }
+        margin-left: 20px;
+        width: 100%; } }
     .profile article h1 {
       font-family: "Bitter", serif;
       font-size: 32px; }
@@ -209,11 +218,15 @@ svg {
       color: #05421e;
       font-weight: 700;
       padding: 16px 30px;
+      transition: all 0.3s ease-out;
       margin-top: 60px; }
       @media (max-width: 1280px) {
         .profile article button {
           font-size: 14px;
           padding: 12px 20px; } }
+      .profile article button:hover {
+        background-color: #087535;
+        color: #ffffff; }
       @media (max-width: 1280px) {
         .profile article button {
           margin-top: 50px; } }
@@ -231,13 +244,17 @@ svg {
         color: #05421e;
         font-weight: 700;
         padding: 16px 30px;
+        transition: all 0.3s ease-out;
         margin: 60px auto 0 auto;
         width: 250px; } }
   @media (max-width: 768px) and (max-width: 1280px) {
     .profile .mobile-btn-get-consultation {
       font-size: 14px;
       padding: 12px 20px; } }
-
+    @media (max-width: 768px) {
+        .profile .mobile-btn-get-consultation:hover {
+          background-color: #087535;
+          color: #ffffff; } }
   .profile .advocate-photo {
     position: relative;
     margin: 0 26px;
@@ -261,8 +278,9 @@ svg {
         margin-top: 40px; } }
     .profile .advocate-photo img {
       max-width: 494px;
-      height: auto;
-      vertical-align: top; }
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px; }
       @media (max-width: 1280px) {
         .profile .advocate-photo img {
           max-width: 100%; } }
@@ -296,10 +314,14 @@ svg {
           gap: 18px;
           padding: 0 25px; } }
       .profile .profile-contacts .profile-links svg {
-        width: 26px; }
+        transition: all 0.3s ease-out;
+        width: 26px;
+        color: #ffffff; }
         @media (max-width: 1280px) {
           .profile .profile-contacts .profile-links svg {
             width: 22px; } }
+        .profile .profile-contacts .profile-links svg:hover {
+          color: #98afba; }
 
 .services {
   display: flex;
@@ -506,11 +528,15 @@ svg {
     color: #05421e;
     font-weight: 700;
     padding: 16px 30px;
+    transition: all 0.3s ease-out;
     margin-top: 70px; }
     @media (max-width: 1280px) {
       .consultation-info button {
         font-size: 14px;
         padding: 12px 20px; } }
+    .consultation-info button:hover {
+      background-color: #087535;
+      color: #ffffff; }
     @media (max-width: 1280px) {
       .consultation-info button {
         margin: 72px auto 0 auto; } }
@@ -553,8 +579,68 @@ svg {
     .consultation-price p span {
       font-size: 24px; }
 
-.cases h2 {
-  margin-top: 60px; }
+.cases {
+  padding: 30px 30px;
+  position: relative;
+  overflow: hidden; }
+  .cases h2 {
+    margin-top: 60px; }
+  .cases .swiper-wrapper {
+    overflow: visible; }
+  .cases .cases-swiper {
+    margin-top: 75px;
+    overflow: visible; }
+    .cases .cases-swiper .swiper-slide {
+      cursor: pointer;
+      color: #242824;
+      font-family: "Raleway", sans-serif;
+      padding: 0 35px 35px 10px;
+      position: relative;
+      z-index: 100;
+      overflow: visible;
+      background: #087535;
+      user-select: none; }
+      .cases .cases-swiper .swiper-slide::before {
+        position: absolute;
+        content: "";
+        z-index: -100;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #087535;
+        background: #ffffff;
+        top: -15px;
+        left: -15px; }
+      .cases .cases-swiper .swiper-slide h4 {
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.5; }
+      .cases .cases-swiper .swiper-slide p {
+        margin-top: 31px;
+        line-height: 1.5;
+        font-size: 16px; }
+      .cases .cases-swiper .swiper-slide footer {
+        margin-top: 13px;
+        text-align: end; }
+        .cases .cases-swiper .swiper-slide footer a span {
+          display: inline-block;
+          margin-right: 12px; }
+  .cases .swiper-cases-buttons {
+    margin-top: 30px; }
+    .cases .swiper-cases-buttons button {
+      transition: all 0.3s ease-out;
+      transition-delay: 0.1s;
+      display: block; }
+      .cases .swiper-cases-buttons button:hover {
+        transform: scale(1.1); }
+    .cases .swiper-cases-buttons .prev-case-button {
+      position: absolute;
+      left: 0;
+      padding: 5px; }
+    .cases .swiper-cases-buttons .next-case-button {
+      position: absolute;
+      right: 0;
+      padding: 5px; }
 
 .certificates {
   margin: 70px 0;
@@ -580,11 +666,14 @@ svg {
   @media (max-width: 768px) {
     .certificates {
       margin: 30px 0; } }
+  .certificates .certificates-swiper {
+    overflow: hidden; }
   .certificates .swiper-slide {
     display: flex;
     justify-content: center;
     width: auto; }
     .certificates .swiper-slide img {
+      border: 2px solid #242824;
       width: 240px; }
   .certificates .swiper-buttons {
     width: 100%;
@@ -593,6 +682,12 @@ svg {
     display: flex;
     justify-content: space-between;
     padding: 0 42px; }
+    .certificates .swiper-buttons button {
+      transition: all 0.3s ease-out;
+      transition-delay: 0.1s;
+      padding: 8px 5px; }
+      .certificates .swiper-buttons button:hover {
+        transform: scale(1.1); }
 
 .location {
   background: #242824;
@@ -740,17 +835,111 @@ svg {
       border-bottom: 1px solid #242824; }
     .footer form input + input {
       margin-top: 44px; }
+    .footer form .policy-comment {
+      margin-top: 40px;
+      line-height: 1.2;
+      font-size: 14px;
+      text-align: justify; }
+      .footer form .policy-comment a {
+        text-decoration: underline; }
     .footer form button {
-      margin-top: 70px;
+      margin-top: 20px;
       padding: 16px 40px;
       background: #d7fadb;
       font-size: 16px;
       font-weight: 700;
-      font-family: "Raleway", sans-serif; }
+      font-family: "Raleway", sans-serif;
+      transition: all 0.3s ease-out; }
+      .footer form button:hover {
+        background: #087535;
+        color: #ffffff; }
 
 .docs {
   height: 90px;
   width: 100%;
-  background: #242824; }
+  background: #242824;
+  color: #ffffff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .docs .policy-anchor {
+    font-family: "Bitter", serif;
+    font-size: 14px;
+    padding: 15px;
+    font-weight: 400; }
+  .docs .scoll-top-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    padding: 10px 15px;
+    margin-right: 3%; }
+
+.modal-with-case {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(36, 40, 36, 0.5);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+  opacity: 0;
+  transition: all 0.3s ease-out; }
+  .modal-with-case .modal-body {
+    margin-top: 5%;
+    width: 60%;
+    position: relative; }
+    @media (max-width: 1280px) {
+      .modal-with-case .modal-body {
+        width: 80%; } }
+  .modal-with-case .modal-body-bg {
+    position: absolute;
+    content: "";
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    background: #087535; }
+  .modal-with-case .modal-content {
+    padding: 76px 52px;
+    background: #ffffff;
+    border: 2px solid #087535;
+    position: relative;
+    z-index: 100; }
+    .modal-with-case .modal-content .close-modal-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 15px; }
+    .modal-with-case .modal-content h4 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.5; }
+    .modal-with-case .modal-content p {
+      margin-top: 53px;
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: justify; }
+  .modal-with-case .modal-prev-slide,
+  .modal-with-case .modal-next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 3% 2%;
+    transition: all 0.3s ease-out; }
+    .modal-with-case .modal-prev-slide:hover,
+    .modal-with-case .modal-next-slide:hover {
+      transform: translateY(-50%) scale(1.1); }
+  .modal-with-case .modal-prev-slide {
+    left: 0; }
+  .modal-with-case .modal-next-slide {
+    right: 0; }
 
 /*# sourceMappingURL=styles.css.map */

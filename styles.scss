@@ -2,6 +2,10 @@
 
 $white: #ffffff;
 $black: #242824;
+$green-dark: #087535;
+$green-light: #d7fadb;
+$button-text-color: #05421e;
+$gray: #98afba;
 $transparent25: rgba(0, 0, 0, 0.25);
 $transparent75: rgba(0, 0, 0, 0.75);
 $transparent85: rgba(0, 0, 0, 0.85);
@@ -17,9 +21,6 @@ $text20: 20px;
 $text16: 16px;
 $text14: 14px;
 $bold: 700;
-$green-dark: #087535;
-$green-light: #d7fadb;
-$button-text-color: #05421e;
 
 $breakpoint1: 1280px;
 $breakpoint2: 768px;
@@ -34,9 +35,14 @@ $breakpoint2: 768px;
     color: $button-text-color;
     font-weight: $bold;
     padding: 16px 30px;
+    @include transition;
     @media (max-width: $breakpoint1) {
         font-size: $text14;
         padding: 12px 20px;
+    }
+    &:hover {
+        background-color: $green-dark;
+        color: $white;
     }
 }
 
@@ -94,6 +100,18 @@ $breakpoint2: 768px;
         z-index: -1;
         border-color: $white;
         transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@mixin transition {
+    transition: all 0.3s ease-out;
+}
+
+@mixin scale-on-hover {
+    @include transition;
+    transition-delay: 0.1s;
+    &:hover {
+        transform: scale(1.1);
     }
 }
 
@@ -192,7 +210,8 @@ svg {
         position: absolute;
         inset: 0;
         z-index: -2;
-        background-image: linear-gradient($transparent75, $transparent75), url("./assets/images/top-section-bg.png");
+        background-image: linear-gradient($transparent75, $transparent75),
+            url("./assets/images/top-section-bg.png");
         background-size: cover;
         background-position: left;
         background-repeat: no-repeat;
@@ -243,6 +262,11 @@ svg {
             gap: 45px;
             justify-items: center;
         }
+        li a {
+            @include scale-on-hover;
+            display: block;
+            padding: 5px 8px;
+        }
     }
     .phone {
         grid-area: phone;
@@ -280,11 +304,13 @@ svg {
         }
     }
     article {
-        flex-shrink: 1;
+        flex-shrink: 0;
+        width: 40%;
         font-weight: $bold;
         grid-area: description;
         @media (max-width: $breakpoint2) {
             margin-left: 20px;
+            width: 100%;
         }
         h1 {
             font-family: $title-font;
@@ -348,8 +374,9 @@ svg {
         }
         & img {
             max-width: 494px;
-            height: auto;
-            vertical-align: top;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
             @media (max-width: $breakpoint1) {
                 max-width: 100%;
             }
@@ -389,9 +416,14 @@ svg {
                 padding: 0 25px;
             }
             & svg {
+                @include transition;
                 width: 26px;
+                color: $white;
                 @media (max-width: $breakpoint1) {
                     width: 22px;
+                }
+                &:hover {
+                    color: $gray;
                 }
             }
         }
@@ -413,7 +445,8 @@ svg {
         width: 80%;
         height: 60%;
         z-index: -3;
-        background-image: linear-gradient($transparent75, $transparent75), url("./assets/images/top-section-bg.png");
+        background-image: linear-gradient($transparent75, $transparent75),
+            url("./assets/images/top-section-bg.png");
     }
     @media (max-width: $breakpoint1) {
         margin: 0 auto;
@@ -481,7 +514,8 @@ svg {
     flex-direction: column;
     padding-top: 60px;
     color: $white;
-    background: linear-gradient($transparent75, $transparent75), url("./assets/images/consultation-seation-bg.png");
+    background: linear-gradient($transparent75, $transparent75),
+        url("./assets/images/consultation-seation-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -633,8 +667,76 @@ svg {
 }
 
 .cases {
+    padding: 30px 30px;
+    position: relative;
     h2 {
         margin-top: 60px;
+    }
+    overflow: hidden;
+    .swiper-wrapper {
+        overflow: visible;
+    }
+    .cases-swiper {
+        margin-top: 75px;
+        overflow: visible;
+        .swiper-slide {
+            cursor: pointer;
+            color: $black;
+            font-family: $body-font;
+            padding: 0 35px 35px 10px;
+            position: relative;
+            z-index: 100;
+            overflow: visible;
+            background: $green-dark;
+            user-select: none;
+            &::before {
+                position: absolute;
+                content: "";
+                z-index: -100;
+                width: 100%;
+                height: 100%;
+                border: 1px solid $green-dark;
+                background: $white;
+                top: -15px;
+                left: -15px;
+            }
+            h4 {
+                font-size: $text20;
+                font-weight: $bold;
+                text-align: center;
+                line-height: 1.5;
+            }
+            p {
+                margin-top: 31px;
+                line-height: 1.5;
+                font-size: $text16;
+            }
+            footer {
+                margin-top: 13px;
+                text-align: end;
+                a span {
+                    display: inline-block;
+                    margin-right: 12px;
+                }
+            }
+        }
+    }
+    .swiper-cases-buttons {
+        margin-top: 30px;
+        button {
+            @include scale-on-hover;
+            display: block;
+        }
+        .prev-case-button {
+            position: absolute;
+            left: 0;
+            padding: 5px;
+        }
+        .next-case-button {
+            position: absolute;
+            right: 0;
+            padding: 5px;
+        }
     }
 }
 
@@ -666,11 +768,15 @@ svg {
     @media (max-width: $breakpoint2) {
         margin: 30px 0;
     }
+    .certificates-swiper {
+        overflow: hidden;
+    }
     .swiper-slide {
         display: flex;
         justify-content: center;
         width: auto;
         & img {
+            border: 2px solid $black;
             width: 240px;
         }
     }
@@ -681,6 +787,10 @@ svg {
         display: flex;
         justify-content: space-between;
         padding: 0 42px;
+        button {
+            @include scale-on-hover;
+            padding: 8px 5px;
+        }
     }
 }
 
@@ -837,13 +947,27 @@ svg {
         input + input {
             margin-top: 44px;
         }
+        .policy-comment {
+            margin-top: 40px;
+            line-height: 1.2;
+            font-size: $text14;
+            text-align: justify;
+            a {
+                text-decoration: underline;
+            }
+        }
         button {
-            margin-top: 70px;
+            margin-top: 20px;
             padding: 16px 40px;
             background: $green-light;
             font-size: $text16;
             font-weight: $bold;
             font-family: $body-font;
+            @include transition;
+            &:hover {
+                background: $green-dark;
+                color: $white;
+            }
         }
     }
 }
@@ -852,4 +976,100 @@ svg {
     height: 90px;
     width: 100%;
     background: $black;
+    color: $white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .policy-anchor {
+        font-family: $title-font;
+        font-size: $text14;
+        padding: 15px;
+        font-weight: 400;
+    }
+    .scoll-top-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        padding: 10px 15px;
+        margin-right: 3%;
+    }
+}
+
+.modal-with-case {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(36, 40, 36, 0.5);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    opacity: 0;
+    @include transition;
+
+    .modal-body {
+        margin-top: 5%;
+        width: 60%;
+        position: relative;
+        @media (max-width: $breakpoint1) {
+            width: 80%;
+        }
+    }
+    .modal-body-bg {
+        position: absolute;
+        content: "";
+        top: 15px;
+        left: 15px;
+        width: 100%;
+        height: 100%;
+        background: $green-dark;
+    }
+    .modal-content {
+        padding: 76px 52px;
+        background: $white;
+        border: 2px solid $green-dark;
+        position: relative;
+        z-index: 100;
+        .close-modal-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 15px;
+        }
+        h4 {
+            text-align: center;
+            font-size: $text24;
+            font-weight: $bold;
+            line-height: 1.5;
+        }
+        p {
+            margin-top: 53px;
+            font-size: $text20;
+            line-height: 1.5;
+            text-align: justify;
+        }
+    }
+    .modal-prev-slide,
+    .modal-next-slide {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 3% 2%;
+        @include transition;
+        &:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+    }
+    .modal-prev-slide {
+        left: 0;
+    }
+    .modal-next-slide {
+        right: 0;
+    }
 }
