@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0; }
 
+html {
+  scroll-behavior: smooth; }
+
 h1,
 h2,
 h3,
@@ -539,13 +542,13 @@ svg {
       color: #ffffff; }
     @media (max-width: 1280px) {
       .consultation-info button {
-        margin: 72px auto 0 auto; } }
+        margin: 72px auto; } }
 
 .mockup {
   position: relative;
   grid-area: mockup; }
   .mockup img {
-    width: 294px;
+    width: 324px;
     height: auto; }
     @media (max-width: 768px) {
       .mockup img {
@@ -886,6 +889,7 @@ svg {
   width: 100%;
   height: 100%;
   z-index: 1000;
+  overflow: hidden;
   background: rgba(36, 40, 36, 0.5);
   backdrop-filter: blur(10px);
   overflow-y: auto;

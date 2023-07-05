@@ -121,7 +121,7 @@ $breakpoint2: 768px;
     padding: 0;
 }
 html {
-    // scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 h1,
 h2,
@@ -617,7 +617,7 @@ svg {
         @include action-button;
         margin-top: 70px;
         @media (max-width: $breakpoint1) {
-            margin: 72px auto 0 auto;
+            margin: 72px auto;
         }
     }
 }
@@ -626,7 +626,7 @@ svg {
     position: relative;
     grid-area: mockup;
     img {
-        width: 294px;
+        width: 324px;
         height: auto;
         @media (max-width: $breakpoint2) {
             width: 100%;
@@ -1007,6 +1007,7 @@ svg {
     width: 100%;
     height: 100%;
     z-index: 1000;
+    overflow: hidden;
     background: rgba(36, 40, 36, 0.5);
     backdrop-filter: blur(10px);
     overflow-y: auto;
