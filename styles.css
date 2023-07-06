@@ -5,7 +5,6 @@
   padding: 0; }
 
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden; }
 
 h1,
@@ -677,7 +676,8 @@ svg {
       .cases .cases-swiper .swiper-slide article footer {
         margin-top: 13px;
         text-align: end; }
-        .cases .cases-swiper .swiper-slide article footer a span {
+        .cases .cases-swiper .swiper-slide article footer button span {
+          color: #242824;
           display: inline-block;
           margin-right: 12px; }
   .cases .swiper-cases-buttons {
@@ -847,17 +847,22 @@ svg {
         content: "";
         position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: -4px;
         width: 100%;
         height: 2px;
         background: #087535; }
+        @media (max-width: 768px) {
+          .footer .contact-me h4::after {
+            width: 80%;
+            left: 50%;
+            transform: translateX(-50%); } }
       @media (max-width: 768px) {
         .footer .contact-me h4 {
           font-size: 16px;
           padding: 0 20px;
           width: 80%;
           text-align: center; } }
-    .footer .contact-me > button,
+    .footer .contact-me > a,
     .footer .contact-me > p {
       display: inline-block;
       font-size: 16px;
@@ -865,9 +870,9 @@ svg {
       font-weight: 700;
       margin-top: 34px; }
       @media (max-width: 768px) {
-        .footer .contact-me > button,
+        .footer .contact-me > a,
         .footer .contact-me > p {
-          margin-top: 14px;
+          margin-top: 18px;
           text-align: center; } }
     .footer .contact-me .messengers {
       margin-top: 30px; }

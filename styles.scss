@@ -121,7 +121,7 @@ $breakpoint2: 768px;
     padding: 0;
 }
 html {
-    scroll-behavior: smooth;
+    // scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
@@ -774,7 +774,8 @@ svg {
                 footer {
                     margin-top: 13px;
                     text-align: end;
-                    a span {
+                    button span {
+                        color: $black;
                         display: inline-block;
                         margin-right: 12px;
                     }
@@ -957,10 +958,15 @@ svg {
                 content: "";
                 position: absolute;
                 left: 0;
-                bottom: 0;
+                bottom: -4px;
                 width: 100%;
                 height: 2px;
                 background: $green-dark;
+                @media (max-width: $breakpoint2) {
+                    width: 80%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
             }
             @media (max-width: $breakpoint2) {
                 font-size: $text16;
@@ -969,7 +975,7 @@ svg {
                 text-align: center;
             }
         }
-        > button,
+        > a,
         > p {
             display: inline-block;
             font-size: $text16;
@@ -977,7 +983,7 @@ svg {
             font-weight: $bold;
             margin-top: 34px;
             @media (max-width: $breakpoint2) {
-                margin-top: 14px;
+                margin-top: 18px;
                 text-align: center;
             }
         }
