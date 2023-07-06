@@ -121,8 +121,10 @@ $breakpoint2: 768px;
     padding: 0;
 }
 html {
-    scroll-behavior: smooth;
+    // scroll-behavior: smooth;
+    overflow-x: hidden;
 }
+
 h1,
 h2,
 h3,
@@ -136,6 +138,7 @@ span {
     color: inherit;
     line-height: 1;
 }
+
 button {
     background: none;
     border: none;
@@ -143,10 +146,12 @@ button {
         cursor: pointer;
     }
 }
+
 input {
     border: none;
     outline: none;
 }
+
 a {
     color: inherit;
     text-decoration: none;
@@ -154,9 +159,11 @@ a {
         cursor: pointer;
     }
 }
+
 li {
     list-style: none;
 }
+
 svg {
     height: auto;
 }
@@ -187,6 +194,9 @@ svg {
         width: fit-content;
         margin: 0 auto;
         text-align: center;
+    }
+    @media (max-width: $breakpoint2) {
+        font-size: $text24;
     }
     &::after {
         content: "";
@@ -222,35 +232,35 @@ svg {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 22px 0;
+    padding: 0;
     border-bottom: 1px solid $white;
     font-family: $body-font;
     font-weight: $bold;
-    @media (max-width: $breakpoint1) {
+    @media (max-width: $breakpoint2) {
+        padding: 8px 0;
+        row-gap: 5px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
         grid-template-areas:
             "logo  phone phone"
             "anchors anchors anchors";
-        margin: 0 30px;
-    }
-    @media (max-width: $breakpoint2) {
         margin: 0 15px;
     }
     .logo {
         display: flex;
         align-items: center;
-        gap: 61px;
+        gap: 21px;
         grid-area: logo;
         @media (max-width: $breakpoint1) {
-            gap: 30px;
+            gap: 12px;
             justify-self: start;
         }
         & img {
-            max-width: 40px;
+            width: 70px;
             height: auto;
-            border-radius: 30%;
+            @media (max-width: $breakpoint2) {
+                width: 50px;
+            }
         }
     }
     .anchors {
@@ -355,9 +365,12 @@ svg {
         display: none;
         grid-area: get-consultation-mobile;
         @media (max-width: $breakpoint2) {
-            @include action-button;
-            margin: 60px auto 0 auto;
-            width: 250px;
+            display: block;
+            button {
+                @include action-button;
+                margin: 60px auto 0 auto;
+                width: 250px;
+            }
         }
     }
 
@@ -374,7 +387,7 @@ svg {
         }
         & img {
             max-width: 494px;
-            height: 100%;
+            height: auto;
             object-fit: cover;
             border-radius: 5px;
             @media (max-width: $breakpoint1) {
@@ -442,7 +455,7 @@ svg {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 80%;
+        width: 90%;
         height: 60%;
         z-index: -3;
         background-image: linear-gradient($transparent75, $transparent75),
@@ -453,6 +466,14 @@ svg {
     }
     h2 {
         margin-bottom: 93px;
+        font-size: $text36;
+        @media (max-width: $breakpoint2) {
+            margin-bottom: 65px;
+            font-size: $text24;
+        }
+    }
+    @media (max-width: $breakpoint2) {
+        padding: 29px 0 42px;
     }
 }
 
@@ -474,7 +495,7 @@ svg {
     box-shadow: 0px 4px 8px $transparent25;
     padding: 18px 34px 35px 54px;
     @media (max-width: $breakpoint2) {
-        max-width: auto;
+        width: 300px;
         margin: 0 30px;
     }
     h3 {
@@ -486,6 +507,9 @@ svg {
         margin: 0 auto;
         line-height: 1.2;
         letter-spacing: 0.04em;
+        @media (max-width: $breakpoint2) {
+            font-size: $text16;
+        }
     }
     ul {
         margin-top: 18px;
@@ -494,6 +518,7 @@ svg {
         }
         li {
             position: relative;
+            font-size: $text20;
             &::before {
                 content: "";
                 position: absolute;
@@ -504,6 +529,9 @@ svg {
                 height: 10px;
                 border-radius: 50%;
                 background: $green-dark;
+            }
+            @media (max-width: $breakpoint2) {
+                font-size: $text14;
             }
         }
     }
@@ -592,6 +620,9 @@ svg {
             grid-template-columns: 1fr;
             grid-template-rows: repeat(3, 1fr);
             row-gap: 66px;
+            @media (max-width: $breakpoint2) {
+                padding: 0 20px;
+            }
         }
         ul + ul {
             @media (max-width: $breakpoint2) {
@@ -629,11 +660,15 @@ svg {
         width: 324px;
         height: auto;
         @media (max-width: $breakpoint2) {
-            width: 100%;
+            width: 90%;
         }
     }
     @media (max-width: $breakpoint1) {
         justify-self: center;
+    }
+    @media (max-width: $breakpoint2) {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -662,61 +697,87 @@ svg {
         font-size: $text14;
         span {
             font-size: $text24;
+            @media (max-width: $breakpoint2) {
+                font-size: $text20;
+            }
         }
+    }
+    @media (max-width: $breakpoint2) {
+        right: 5px;
+        bottom: 105px;
     }
 }
 
 .cases {
-    padding: 30px 30px;
+    padding: 30px 0;
     position: relative;
     h2 {
         margin-top: 60px;
+        font-size: $text36;
+        @media (max-width: $breakpoint2) {
+            font-size: $text24;
+            margin-top: 0px;
+        }
     }
     overflow: hidden;
-    .swiper-wrapper {
-        overflow: visible;
-    }
     .cases-swiper {
         margin-top: 75px;
         overflow: visible;
-        .swiper-slide {
-            cursor: pointer;
-            color: $black;
-            font-family: $body-font;
-            padding: 0 35px 35px 10px;
-            position: relative;
-            z-index: 100;
+        overflow: hidden;
+        @media (max-width: $breakpoint2) {
+            margin-top: 40px;
+        }
+        .swiper-wrapper {
             overflow: visible;
-            background: $green-dark;
-            user-select: none;
-            &::before {
-                position: absolute;
-                content: "";
-                z-index: -100;
-                width: 100%;
-                height: 100%;
-                border: 1px solid $green-dark;
-                background: $white;
-                top: -15px;
-                left: -15px;
-            }
-            h4 {
-                font-size: $text20;
-                font-weight: $bold;
-                text-align: center;
-                line-height: 1.5;
-            }
-            p {
-                margin-top: 31px;
-                line-height: 1.5;
-                font-size: $text16;
-            }
-            footer {
-                margin-top: 13px;
-                text-align: end;
-                a span {
-                    display: inline-block;
-                    margin-right: 12px;
+            padding-top: 16px;
+        }
+        .swiper-slide {
+            article {
+                width: 90%;
+                margin: 0 auto;
+                transform: translateX(10px);
+                cursor: pointer;
+                color: $black;
+                font-family: $body-font;
+                padding: 0 35px 35px 10px;
+                position: relative;
+                z-index: 100;
+                overflow: visible;
+                background: $green-dark;
+                user-select: none;
+                touch-action: auto;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    z-index: -100;
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid $green-dark;
+                    background: $white;
+                    top: -15px;
+                    left: -15px;
+                }
+                h4 {
+                    font-size: $text20;
+                    font-weight: $bold;
+                    text-align: center;
+                    line-height: 1.5;
+                }
+                p {
+                    margin-top: 31px;
+                    line-height: 1.5;
+                    font-size: $text16;
+                    @media (max-width: $breakpoint2) {
+                        margin-top: 20px;
+                    }
+                }
+                footer {
+                    margin-top: 13px;
+                    text-align: end;
+                    a span {
+                        display: inline-block;
+                        margin-right: 12px;
+                    }
                 }
             }
         }
@@ -741,35 +802,43 @@ svg {
 }
 
 .certificates {
-    margin: 70px 0;
-    padding: 40px 0;
-    position: relative;
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        height: 100%;
-    }
-    &::before {
-        transform: translate(-50%, -50%) rotate(177deg);
-        width: 50%;
-        background: $green-light;
-    }
-    &::after {
-        transform: translate(-50%, -50%) rotate(2deg);
-        width: 55%;
-        border: 2px solid $green-dark;
-    }
+    margin: 60px 0;
+    padding: 30px 0;
     @media (max-width: $breakpoint1) {
         margin: 50px 0;
     }
     @media (max-width: $breakpoint2) {
-        margin: 30px 0;
+        margin: 0;
+        padding: 22px 0;
     }
     .certificates-swiper {
         overflow: hidden;
+        position: relative;
+        padding: 10px 20px;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 80%;
+        }
+        &::before {
+            transform: translate(-50%, -50%) rotate(177deg);
+            width: 50%;
+            background: $green-light;
+            @media (max-width: $breakpoint2) {
+                width: 85%;
+            }
+        }
+        &::after {
+            transform: translate(-50%, -50%) rotate(2deg);
+            width: 55%;
+            border: 2px solid $green-dark;
+            @media (max-width: $breakpoint2) {
+                width: 85%;
+            }
+        }
     }
     .swiper-slide {
         display: flex;
@@ -782,14 +851,16 @@ svg {
     }
     .swiper-buttons {
         width: 100%;
-        position: absolute;
-        bottom: -30px;
         display: flex;
+        margin-top: 30px;
         justify-content: space-between;
         padding: 0 42px;
         button {
             @include scale-on-hover;
             padding: 8px 5px;
+        }
+        @media (max-width: $breakpoint2) {
+            padding: 0 5px;
         }
     }
 }
@@ -804,7 +875,7 @@ svg {
     @media (max-width: $breakpoint1) {
         padding: 30px;
     }
-    @media (max-width: $breakpoint1) {
+    @media (max-width: $breakpoint2) {
         padding: 30px 10px;
     }
     h2 {
@@ -814,8 +885,9 @@ svg {
         span {
             @include green-text-strip(100%, 10%);
         }
-        @media (max-width: $breakpoint1) {
+        @media (max-width: $breakpoint2) {
             width: fit-content;
+            font-size: $text24;
             margin: 0 auto 30px auto;
         }
     }
@@ -891,6 +963,7 @@ svg {
                 background: $green-dark;
             }
             @media (max-width: $breakpoint2) {
+                font-size: $text16;
                 padding: 0 20px;
                 width: 80%;
                 text-align: center;
@@ -904,6 +977,7 @@ svg {
             font-weight: $bold;
             margin-top: 34px;
             @media (max-width: $breakpoint2) {
+                margin-top: 14px;
                 text-align: center;
             }
         }
@@ -926,7 +1000,7 @@ svg {
             margin: 30px auto 0 auto;
             width: auto;
         }
-        @media (max-width: $breakpoint1) {
+        @media (max-width: $breakpoint2) {
             margin: 30px 15px 0 15px;
             padding: 22px 27px;
         }
@@ -937,12 +1011,20 @@ svg {
             line-height: 1.5;
             text-align: center;
             margin-bottom: 34px;
+            @media (max-width: $breakpoint2) {
+                font-size: $text16;
+            }
         }
         input {
             font-size: $text20;
             height: 52px;
             width: 100%;
             border-bottom: 1px solid $black;
+            border-radius: 0;
+            @media (max-width: $breakpoint2) {
+                height: 42px;
+                font-size: $text14;
+            }
         }
         input + input {
             margin-top: 44px;
@@ -1013,7 +1095,6 @@ svg {
     overflow-y: auto;
     opacity: 0;
     @include transition;
-
     .modal-body {
         margin-top: 5%;
         width: 60%;
@@ -1030,6 +1111,10 @@ svg {
         width: 100%;
         height: 100%;
         background: $green-dark;
+        @media (max-width: $breakpoint2) {
+            top: 6px;
+            left: 6px;
+        }
     }
     .modal-content {
         padding: 76px 52px;
@@ -1037,23 +1122,37 @@ svg {
         border: 2px solid $green-dark;
         position: relative;
         z-index: 100;
+        @media (max-width: $breakpoint2) {
+            padding: 20px 15px;
+        }
         .close-modal-btn {
             position: absolute;
             right: 0;
             top: 0;
             padding: 15px;
+            @media (max-width: $breakpoint2) {
+                padding: 7px;
+            }
         }
         h4 {
+            margin-top: 12px;
             text-align: center;
             font-size: $text24;
             font-weight: $bold;
             line-height: 1.5;
+            @media (max-width: $breakpoint2) {
+                font-size: $text16;
+            }
         }
         p {
             margin-top: 53px;
             font-size: $text20;
             line-height: 1.5;
             text-align: justify;
+            @media (max-width: $breakpoint2) {
+                margin-top: 18px;
+                font-size: $text14;
+            }
         }
     }
     .modal-prev-slide,
@@ -1061,10 +1160,20 @@ svg {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        padding: 3% 2%;
+        padding: 6% 2%;
         @include transition;
         &:hover {
             transform: translateY(-50%) scale(1.1);
+        }
+        @media (max-width: $breakpoint2) {
+            font-size: $text16;
+            touch-action: none;
+        }
+        svg {
+            height: 80px;
+            @media (max-width: $breakpoint2) {
+                height: 60px;
+            }
         }
     }
     .modal-prev-slide {

@@ -1,17 +1,19 @@
 const telegram_bot_id = "6204435262:AAFKXOBKBlc_3uYDtOcTOYLZUPGNd3EyyfE";
 //chat id
 const chat_id = 902438310;
-let u_name, email, message;
+let u_name, phone, message;
 
 const getFormData = function () {
     u_name = document.getElementById("name").value;
-    email = document.getElementById("phone").value;
-    message = "Имя: " + u_name + "\nТелефон: " + email;
+    phone = document.getElementById("phone").value;
+    message = "Имя: " + u_name + "\nТелефон: " + phone;
 };
 
 const sendForm = async (e) => {
     e.preventDefault();
     getFormData();
+    if (!u_name.length || !phone.length) return;
+
     const url = "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage";
     const options = {
         method: "POST",

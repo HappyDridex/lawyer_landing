@@ -24,8 +24,10 @@ document.querySelectorAll(".cases-swiper .swiper-slide").forEach((slide) => {
 
 function switchSlide(step) {
     if (!activeSlide) return;
-    activeSlide =
-        casesList.find((caseEl) => +caseEl.id === +activeSlide.id + step) || casesList[0];
+    const firstSlise = casesList[0];
+    const lastSlide = casesList[casesList.length - 1];
+    const nextSlide = casesList.find((caseEl) => +caseEl.id === +activeSlide.id + step);
+    activeSlide = nextSlide || (step === 1 ? firstSlise : lastSlide);
     renderSlide();
 }
 
