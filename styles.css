@@ -5,7 +5,7 @@
   padding: 0; }
 
 html {
-  overflow-x: hidden; }
+  scroll-behavior: smooth; }
 
 h1,
 h2,
@@ -50,7 +50,8 @@ svg {
 
 .container {
   max-width: 1090px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow-x: hidden; }
   @media (max-width: 1280px) {
     .container {
       width: auto; } }
@@ -482,7 +483,8 @@ svg {
     font-weight: 700;
     font-family: "Bitter", serif;
     line-height: 1.5;
-    letter-spacing: 0.08rem; }
+    letter-spacing: 0.08rem;
+    text-align: center; }
     @media (max-width: 768px) {
       .consultation-info h3 {
         margin: 0 auto;
@@ -865,6 +867,7 @@ svg {
     .footer .contact-me > a,
     .footer .contact-me > p {
       display: inline-block;
+      width: max-content;
       font-size: 16px;
       font-family: "Raleway", sans-serif;
       font-weight: 700;
@@ -873,6 +876,7 @@ svg {
         .footer .contact-me > a,
         .footer .contact-me > p {
           margin-top: 18px;
+          font-size: 14px;
           text-align: center; } }
     .footer .contact-me .messengers {
       margin-top: 30px; }
@@ -949,6 +953,9 @@ svg {
     font-size: 14px;
     padding: 15px;
     font-weight: 400; }
+    @media (max-width: 768px) {
+      .docs .policy-anchor {
+        font-size: 12px; } }
   .docs .scoll-top-btn {
     position: absolute;
     top: 50%;
