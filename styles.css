@@ -682,9 +682,13 @@ svg {
         margin-top: 13px;
         text-align: end; }
         .cases .cases-swiper .swiper-slide article footer button span {
+          font-size: 16px;
           color: #242824;
           display: inline-block;
           margin-right: 12px; }
+          @media (max-width: 1280px) {
+            .cases .cases-swiper .swiper-slide article footer button span {
+              font-size: 14px; } }
   .cases .swiper-cases-buttons {
     margin-top: 30px; }
     .cases .swiper-cases-buttons button {

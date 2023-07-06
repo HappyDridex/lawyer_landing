@@ -780,9 +780,13 @@ svg {
                     margin-top: 13px;
                     text-align: end;
                     button span {
+                        font-size: $text16;
                         color: $black;
                         display: inline-block;
                         margin-right: 12px;
+                        @media (max-width: $breakpoint1) {
+                            font-size: $text14;
+                        }
                     }
                 }
             }
