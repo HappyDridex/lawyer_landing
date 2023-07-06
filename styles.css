@@ -160,7 +160,7 @@ svg {
       margin: 0 auto; } }
   @media (max-width: 768px) {
     .profile {
-      padding: 40px 15px; } }
+      padding: 40px 20px 40px 5px; } }
   .profile .advocate-info {
     display: flex;
     justify-content: space-between; }
