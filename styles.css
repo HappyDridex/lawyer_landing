@@ -856,7 +856,7 @@ svg {
           padding: 0 20px;
           width: 80%;
           text-align: center; } }
-    .footer .contact-me > a,
+    .footer .contact-me > button,
     .footer .contact-me > p {
       display: inline-block;
       font-size: 16px;
@@ -864,7 +864,7 @@ svg {
       font-weight: 700;
       margin-top: 34px; }
       @media (max-width: 768px) {
-        .footer .contact-me > a,
+        .footer .contact-me > button,
         .footer .contact-me > p {
           margin-top: 14px;
           text-align: center; } }
