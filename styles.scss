@@ -570,6 +570,7 @@ svg {
 .consultation-body {
     display: flex;
     flex-wrap: wrap;
+    overflow: visible;
     @media (max-width: $breakpoint1) {
         display: grid;
         grid-template-columns: 1fr;
@@ -678,13 +679,19 @@ svg {
     position: absolute;
     background: $white;
     right: -45px;
-    bottom: 105px;
+    bottom: 20%;
     font-weight: $bold;
     font-family: $body-font;
     border: 1px solid $green-dark;
     text-align: center;
     padding: 18px 21px;
-    z-index: 0;
+    z-index: 5;
+    @media (max-width: $breakpoint1) {
+        width: 220px;
+    }
+    @media (max-width: $breakpoint2) {
+        right: 5px;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -703,10 +710,6 @@ svg {
                 font-size: $text20;
             }
         }
-    }
-    @media (max-width: $breakpoint2) {
-        right: 5px;
-        bottom: 105px;
     }
 }
 

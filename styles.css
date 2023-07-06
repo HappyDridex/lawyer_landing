@@ -462,7 +462,8 @@ svg {
 
 .consultation-body {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  overflow: visible; }
   @media (max-width: 1280px) {
     .consultation-body {
       display: grid;
@@ -590,13 +591,19 @@ svg {
   position: absolute;
   background: #ffffff;
   right: -45px;
-  bottom: 105px;
+  bottom: 20%;
   font-weight: 700;
   font-family: "Raleway", sans-serif;
   border: 1px solid #087535;
   text-align: center;
   padding: 18px 21px;
-  z-index: 0; }
+  z-index: 5; }
+  @media (max-width: 1280px) {
+    .consultation-price {
+      width: 220px; } }
+  @media (max-width: 768px) {
+    .consultation-price {
+      right: 5px; } }
   .consultation-price::before {
     content: "";
     position: absolute;
@@ -613,10 +620,6 @@ svg {
       @media (max-width: 768px) {
         .consultation-price p span {
           font-size: 20px; } }
-  @media (max-width: 768px) {
-    .consultation-price {
-      right: 5px;
-      bottom: 105px; } }
 
 .cases {
   padding: 30px 0;
