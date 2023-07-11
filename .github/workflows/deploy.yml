@@ -12,8 +12,7 @@ jobs:
             - uses: actions/checkout@v2
 
             # Install rsync
-            - name: Install rsync
-            run: sudo apt install -y rsync
+            - run: sudo apt install -y rsync
 
             # Setup key
             - run: set -eu
