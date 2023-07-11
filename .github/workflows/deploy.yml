@@ -17,4 +17,4 @@ jobs:
             - run: echo "${{ secrets.ssh_key }}" > "$HOME/.ssh/ssh_key"
             - run: chmod 600 "$HOME/.ssh/ssh_key"
             # Deploy
-            - run: ssh -p 22 -i $HOME/.ssh/ssh_key -o StrictHostKeyChecking=no" --archive --compress --delete . root@194-67-108-154.cloudvps.regruhosting.ru:/var/www/adv-teuvazheva.ru/html
+            - run: rsync -e "ssh -p 22 -i $HOME/.ssh/ssh_key -o StrictHostKeyChecking=no" --archive --compress --delete . root@194-67-108-154.cloudvps.regruhosting.ru:/var/www/adv-teuvazheva.ru/html
