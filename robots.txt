@@ -1,0 +1,11 @@
+User-agent: *
+Disallow:
+Sitemap: https://adv-teuvazheva.ru/sitemap.xml
+
+User-agent: GoogleBot
+Disallow:
+Sitemap: https://adv-teuvazheva.ru/sitemap.xml
+
+User-agent: Yandex
+Disallow:
+Sitemap: https://adv-teuvazheva.ru/sitemap.xml
