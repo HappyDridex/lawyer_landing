@@ -221,8 +221,7 @@ svg {
         position: absolute;
         inset: 0;
         z-index: -2;
-        background-image: linear-gradient($transparent75, $transparent75),
-            url("./assets/images/top-section-bg.png");
+        background-image: linear-gradient($transparent75, $transparent75), url("./assets/images/top-section-bg.png");
         background-size: cover;
         background-position: left;
         background-repeat: no-repeat;
@@ -459,8 +458,7 @@ svg {
         width: 90%;
         height: 60%;
         z-index: -3;
-        background-image: linear-gradient($transparent75, $transparent75),
-            url("./assets/images/top-section-bg.png");
+        background-image: linear-gradient($transparent75, $transparent75), url("./assets/images/top-section-bg.png");
     }
     @media (max-width: $breakpoint1) {
         margin: 0 auto;
@@ -543,8 +541,7 @@ svg {
     flex-direction: column;
     padding-top: 60px;
     color: $white;
-    background: linear-gradient($transparent75, $transparent75),
-        url("./assets/images/consultation-seation-bg.png");
+    background: linear-gradient($transparent75, $transparent75), url("./assets/images/consultation-seation-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
