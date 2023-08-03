@@ -30,12 +30,14 @@ $breakpoint2: 768px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     font-size: $text16;
     font-family: $body-font;
     background-color: $white;
     color: $button-text-color;
     font-weight: $bold;
     padding: 16px 30px;
+    width: 253px;
     @include transition;
     @media (max-width: $breakpoint1) {
         font-size: $text14;
@@ -349,28 +351,23 @@ svg {
             }
         }
         a {
-            @media (max-width: $breakpoint2) {
-                display: none;
-            }
-        }
-        button {
             @include action-button;
             margin-top: 60px;
             @media (max-width: $breakpoint1) {
                 margin-top: 50px;
             }
+            @media (max-width: $breakpoint2) {
+                display: none;
+            }
         }
     }
     .mobile-btn-get-consultation {
-        display: none;
         grid-area: get-consultation-mobile;
+        @include action-button;
+        margin: 60px auto 0 auto;
+        display: none;
         @media (max-width: $breakpoint2) {
             display: block;
-            button {
-                @include action-button;
-                margin: 60px auto 0 auto;
-                width: 250px;
-            }
         }
     }
 
@@ -644,7 +641,7 @@ svg {
             @include frames-around-number;
         }
     }
-    button {
+    a {
         @include action-button;
         margin-top: 70px;
         @media (max-width: $breakpoint1) {
