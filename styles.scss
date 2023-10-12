@@ -120,9 +120,8 @@ $breakpoint2: 768px;
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -134,29 +133,27 @@ h4,
 h5,
 h6,
 p,
+a,
 span {
-    font-size: inherit;
-    font-weight: inherit;
     color: inherit;
-    line-height: 1;
 }
 
 button {
     background: none;
     border: none;
+
     &:hover {
         cursor: pointer;
     }
 }
 
 input {
-    border: none;
     outline: none;
 }
 
 a {
-    color: inherit;
     text-decoration: none;
+
     &:hover {
         cursor: pointer;
     }
@@ -173,15 +170,17 @@ svg {
 .b {
     border: 2px red solid;
 }
+
 // ymaps hide copyright section
 [class*="copyrights-pane"] {
     display: none !important;
 }
 
-.container {
+.container-main {
     max-width: 1090px;
     margin: 0 auto;
     overflow-x: hidden;
+
     @media (max-width: $breakpoint1) {
         width: auto;
     }
@@ -192,15 +191,18 @@ svg {
     font-weight: $bold;
     position: relative;
     width: max-content;
+
     @media (max-width: $breakpoint1) {
         font-size: $text32;
         width: fit-content;
         margin: 0 auto;
         text-align: center;
     }
+
     @media (max-width: $breakpoint2) {
         font-size: $text24;
     }
+
     &::after {
         content: "";
         position: absolute;
@@ -213,9 +215,10 @@ svg {
     }
 }
 
-.introduction {
+.introduction-section {
     color: $white;
     position: relative;
+
     &::before {
         content: "";
         width: 100%;
@@ -230,7 +233,7 @@ svg {
     }
 }
 
-.navbar {
+.navbar-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -238,6 +241,7 @@ svg {
     border-bottom: 1px solid $white;
     font-family: $body-font;
     font-weight: $bold;
+
     @media (max-width: $breakpoint2) {
         padding: 8px 0;
         row-gap: 5px;
@@ -248,50 +252,64 @@ svg {
             "anchors anchors anchors";
         margin: 0 15px;
     }
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 21px;
-        grid-area: logo;
-        @media (max-width: $breakpoint1) {
-            gap: 12px;
-            justify-self: start;
-        }
-        & img {
-            width: 70px;
-            height: auto;
-            @media (max-width: $breakpoint2) {
-                width: 50px;
-            }
-        }
-    }
-    .anchors {
-        display: flex;
-        justify-content: center;
-        gap: 65px;
-        grid-area: anchors;
-        @media (max-width: $breakpoint1) {
-            gap: 45px;
-            justify-items: center;
-        }
-        li a {
-            @include scale-on-hover;
-            display: block;
-            padding: 5px 8px;
-        }
-    }
-    .phone {
-        grid-area: phone;
-        @media (max-width: $breakpoint1) {
-            justify-self: end;
-        }
-        a {
-            font-family: $title-font;
-        }
+}
+
+.navbar-menu__logo {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    grid-area: logo;
+
+    @media (max-width: $breakpoint1) {
+        gap: 12px;
+        justify-self: start;
     }
 }
 
-.profile {
+.navbar-menu__logo-image {
+    width: 70px;
+    height: auto;
+    @media (max-width: $breakpoint2) {
+        width: 50px;
+    }
+}
+
+.navbar-menu__logo-comment {
+    font-size: 12px;
+    @media (max-width: $breakpoint2) {
+        font-size: 10px;
+    }
+}
+
+.navbar-menu__anchors-list {
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+    grid-area: anchors;
+    @media (max-width: $breakpoint1) {
+        gap: 45px;
+        justify-items: center;
+    }
+}
+
+.navbar-menu__anchor-item {
+    @include scale-on-hover;
+    display: block;
+    padding: 5px 8px;
+}
+
+.navbar-menu__address {
+    grid-area: phone;
+    @media (max-width: $breakpoint1) {
+        justify-self: end;
+    }
+}
+
+.navbar-menu__address-ancor {
+    font-family: $title-font;
+}
+
+.profile-section {
     padding: 76px 0;
     display: flex;
     flex-direction: column;
@@ -302,145 +320,164 @@ svg {
     @media (max-width: $breakpoint2) {
         padding: 40px 20px 40px 5px;
     }
-    .advocate-info {
-        display: flex;
-        justify-content: space-between;
-        @media (max-width: $breakpoint2) {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "description"
-                "photo"
-                "get-consultation-mobile";
-            margin: 0 auto;
-        }
-    }
-    article {
-        flex-shrink: 0;
-        width: 40%;
-        font-weight: $bold;
-        grid-area: description;
-        @media (max-width: $breakpoint2) {
-            margin-left: 20px;
-            width: 100%;
-        }
-        h1 {
-            font-family: $title-font;
-            font-size: $text32;
-            @media (max-width: $breakpoint1) {
-                font-size: $text24;
-            }
-            span {
-                @include green-text-strip(114%, 0);
-                display: inline-block;
-                font-size: $text48;
-                margin-bottom: 20px;
-                @media (max-width: $breakpoint1) {
-                    font-size: $text36;
-                }
-            }
-        }
-        p {
-            width: fit-content;
-            margin-top: 28px;
-            font-size: $text16;
-            font-family: $body-font;
-            line-height: 1.5;
-            @media (max-width: $breakpoint1) {
-                font-size: $text14;
-            }
-        }
-        a {
-            @include action-button;
-            margin-top: 60px;
-            @media (max-width: $breakpoint1) {
-                margin-top: 50px;
-            }
-            @media (max-width: $breakpoint2) {
-                display: none;
-            }
-        }
-    }
-    .mobile-btn-get-consultation {
-        grid-area: get-consultation-mobile;
-        @include action-button;
-        margin: 60px auto 0 auto;
-        display: none;
-        @media (max-width: $breakpoint2) {
-            display: block;
-        }
-    }
+}
 
-    .advocate-photo {
-        @include box-frame($white);
-        margin: 0 26px;
-        height: fit-content;
-        grid-area: photo;
-        @media (max-width: $breakpoint1) {
-            width: fit-content;
-        }
-        @media (max-width: $breakpoint2) {
-            margin-top: 40px;
-        }
-        & img {
-            max-width: 494px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 5px;
-            @media (max-width: $breakpoint1) {
-                max-width: 100%;
-            }
-        }
-    }
-    .profile-contacts {
-        margin-top: 70px;
-        width: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-        &::before,
-        &::after {
-            content: "";
-            display: block;
-            transform: translateY(-50%);
-            border-bottom: 1px solid $white;
-        }
-        &::before {
-            min-width: 70%;
-            @media (max-width: $breakpoint2) {
-                min-width: 50%;
-            }
-        }
-        &::after {
-            width: 100%;
-        }
-        @media (max-width: $breakpoint2) {
-            margin-top: 50px;
-        }
-        .profile-links {
-            width: fit-content;
-            padding: 0 50px;
-            display: flex;
-            gap: 24px;
-            @media (max-width: $breakpoint1) {
-                gap: 18px;
-                padding: 0 25px;
-            }
-            & svg {
-                @include transition;
-                width: 26px;
-                color: $white;
-                @media (max-width: $breakpoint1) {
-                    width: 22px;
-                }
-                &:hover {
-                    color: $gray;
-                }
-            }
-        }
+.advocate-info {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: $breakpoint2) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "description"
+            "photo"
+            "get-consultation-mobile";
+        margin: 0 auto;
     }
 }
 
-.services {
+.advocate-info__article {
+    flex-shrink: 0;
+    width: 40%;
+    grid-area: description;
+
+    @media (max-width: $breakpoint2) {
+        margin-left: 20px;
+        width: 100%;
+    }
+}
+
+.advocate-article-card {
+    font-weight: $bold;
+}
+
+.advocate-article-card__title {
+    font-family: $title-font;
+    font-size: $text32;
+
+    @media (max-width: $breakpoint1) {
+        font-size: $text24;
+    }
+}
+
+.advocate-article-card__title_accent-word {
+    @include green-text-strip(114%, 0);
+    display: inline-block;
+    font-size: $text48;
+    margin-bottom: 20px;
+    @media (max-width: $breakpoint1) {
+        font-size: $text36;
+    }
+}
+
+.advocate-article-card__slogan-text {
+    width: fit-content;
+    margin-top: 28px;
+    font-size: $text16;
+    font-family: $body-font;
+    line-height: 1.5;
+    @media (max-width: $breakpoint1) {
+        font-size: $text14;
+    }
+}
+
+.advocate-article-card__call-to-action-button {
+    @include action-button;
+    margin-top: 60px;
+    @media (max-width: $breakpoint1) {
+        margin-top: 50px;
+    }
+    @media (max-width: $breakpoint2) {
+        display: none;
+    }
+}
+
+.advocate-info__photo {
+    margin: 0 26px;
+    height: fit-content;
+    grid-area: photo;
+    @media (max-width: $breakpoint1) {
+        width: fit-content;
+    }
+    @media (max-width: $breakpoint2) {
+        margin-top: 40px;
+    }
+}
+
+.advocate-photo {
+    @include box-frame($white);
+}
+
+.advocate-photo__image {
+    max-width: 494px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    @media (max-width: $breakpoint1) {
+        max-width: 100%;
+    }
+}
+
+.advocate-article-card__call-to-action-button-mobile {
+    grid-area: get-consultation-mobile;
+    @include action-button;
+    margin: 60px auto 0 auto;
+    display: none;
+    @media (max-width: $breakpoint2) {
+        display: block;
+    }
+}
+
+.profile-contacts {
+    margin-top: 70px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        transform: translateY(-50%);
+        border-bottom: 1px solid $white;
+    }
+    &::before {
+        min-width: 70%;
+        @media (max-width: $breakpoint2) {
+            min-width: 50%;
+        }
+    }
+    &::after {
+        width: 100%;
+    }
+    @media (max-width: $breakpoint2) {
+        margin-top: 50px;
+    }
+}
+
+.profile-contacts__links-list {
+    width: fit-content;
+    padding: 0 50px;
+    display: flex;
+    gap: 24px;
+    @media (max-width: $breakpoint1) {
+        gap: 18px;
+        padding: 0 25px;
+    }
+}
+
+.profile-contacts__link-icon {
+    @include transition;
+    width: 26px;
+    color: $white;
+    @media (max-width: $breakpoint1) {
+        width: 22px;
+    }
+    &:hover {
+        color: $gray;
+    }
+}
+
+.services-section {
     display: flex;
     flex-direction: column;
     padding: 59px 0 72px;
@@ -460,20 +497,19 @@ svg {
     @media (max-width: $breakpoint1) {
         margin: 0 auto;
     }
-    h2 {
-        margin-bottom: 93px;
-        font-size: $text36;
-        @media (max-width: $breakpoint2) {
-            margin-bottom: 65px;
-            font-size: $text24;
-        }
-    }
     @media (max-width: $breakpoint2) {
         padding: 29px 0 42px;
     }
 }
 
-.categories {
+.services-section__title {
+    margin-bottom: 93px;
+    @media (max-width: $breakpoint2) {
+        margin-bottom: 65px;
+    }
+}
+
+.services-categories {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -483,57 +519,66 @@ svg {
     }
 }
 
-.category-card {
-    @include box-frame($green-dark);
-    background: $white;
+.services-categories__category-card {
     width: 462px;
     min-height: 328px;
-    box-shadow: 0px 4px 8px $transparent25;
-    padding: 18px 34px 35px 54px;
+
     @media (max-width: $breakpoint2) {
         width: 300px;
         margin: 0 30px;
     }
-    h3 {
-        font-size: $text24;
-        font-weight: $bold;
-        font-family: $title-font;
-        width: max-content;
-        text-align: center;
-        margin: 0 auto;
-        line-height: 1.2;
-        letter-spacing: 0.04em;
-        @media (max-width: $breakpoint2) {
-            font-size: $text16;
-        }
-    }
-    ul {
-        margin-top: 18px;
-        li + li {
-            margin-top: 10px;
-        }
-        li {
-            position: relative;
-            font-size: $text20;
-            &::before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                left: -24px;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: $green-dark;
-            }
-            @media (max-width: $breakpoint2) {
-                font-size: $text14;
-            }
-        }
+}
+
+.services-category-card {
+    @include box-frame($green-dark);
+    background: $white;
+    box-shadow: 0px 4px 8px $transparent25;
+    padding: 18px 34px 35px 54px;
+}
+
+.services-category-card__title {
+    font-size: $text24;
+    font-weight: $bold;
+    font-family: $title-font;
+    width: max-content;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+
+    @media (max-width: $breakpoint2) {
+        font-size: $text16;
     }
 }
 
-.consultation {
+.services-category-card__services-list {
+    margin-top: 18px;
+}
+
+.services-category-card__services-list-item + .services-category-card__services-list-item {
+    margin-top: 10px;
+}
+
+.services-category-card__services-list-item {
+    position: relative;
+    font-size: $text20;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -24px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $green-dark;
+    }
+    @media (max-width: $breakpoint2) {
+        font-size: $text14;
+    }
+}
+
+.consultation-section {
     display: flex;
     flex-direction: column;
     padding-top: 60px;
@@ -542,26 +587,28 @@ svg {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    h2 {
-        text-align: center;
-        font-size: $text36;
-        font-family: $title-font;
-        margin-bottom: 45px;
-        @media (max-width: $breakpoint1) {
-            font-size: $text32;
-        }
-        @media (max-width: $breakpoint2) {
-            width: 80%;
-            margin: 0 auto;
-        }
-        span {
-            display: inline-block;
-            @include green-text-strip(105%, 10%);
-        }
+}
+
+.consultation-section__title {
+    text-align: center;
+    font-size: $text36;
+    font-family: $title-font;
+    margin-bottom: 45px;
+    @media (max-width: $breakpoint1) {
+        font-size: $text32;
+    }
+    @media (max-width: $breakpoint2) {
+        width: 80%;
+        margin: 0 auto;
     }
 }
 
-.consultation-body {
+.consultation-section__title_accent-word {
+    display: inline-block;
+    @include green-text-strip(105%, 10%);
+}
+
+.consultation-inner {
     display: flex;
     flex-wrap: wrap;
     overflow: visible;
@@ -583,83 +630,87 @@ svg {
 .consultation-info {
     margin-left: 50px;
     grid-area: info;
-    h3 {
-        font-size: $text24;
-        font-weight: $bold;
-        font-family: $title-font;
-        line-height: 1.5;
-        letter-spacing: 0.08rem;
-        text-align: center;
-        @media (max-width: $breakpoint2) {
-            margin: 0 auto;
-            width: fit-content;
-        }
-    }
     @media (max-width: $breakpoint1) {
         margin-left: 0;
     }
-    .consultation-list {
-        margin-top: 37px;
-        margin-left: 22px;
-        display: grid;
-        grid-template-columns: repeat(2, 300px);
-        column-gap: 44px;
+}
+
+.consultation-info__title {
+    font-size: $text24;
+    font-weight: $bold;
+    font-family: $title-font;
+    line-height: 1.5;
+    letter-spacing: 0.08rem;
+    text-align: center;
+    @media (max-width: $breakpoint2) {
+        margin: 0 auto;
         width: fit-content;
-        @media (max-width: $breakpoint1) {
-            grid-template-columns: repeat(2, minmax(1fr, 350px));
-        }
-        @media (max-width: $breakpoint2) {
-            margin-top: 45px;
-            grid-template-columns: 1fr;
-        }
-        ul {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: repeat(3, 1fr);
-            row-gap: 66px;
-            @media (max-width: $breakpoint2) {
-                padding: 0 20px;
-            }
-        }
-        ul + ul {
-            @media (max-width: $breakpoint2) {
-                margin-top: 64px;
-            }
-        }
-        li {
-            font-size: $text14;
-            font-family: $body-font;
-            font-weight: $bold;
-            display: flex;
-            align-items: center;
-        }
-        span {
-            display: inline-block;
-            font-size: $text16;
-            font-family: $title-font;
-            margin-right: 33px;
-            @include frames-around-number;
-        }
-    }
-    a {
-        @include action-button;
-        margin-top: 70px;
-        @media (max-width: $breakpoint1) {
-            margin: 72px auto;
-        }
     }
 }
 
-.mockup {
+.consultation-info__steps-list {
+    margin-top: 37px;
+    margin-left: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    column-gap: 44px;
+    width: fit-content;
+    @media (max-width: $breakpoint1) {
+        grid-template-columns: repeat(2, minmax(1fr, 350px));
+    }
+    @media (max-width: $breakpoint2) {
+        margin-top: 45px;
+        grid-template-columns: 1fr;
+    }
+}
+
+.consultation-steps__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 66px;
+    @media (max-width: $breakpoint2) {
+        padding: 0 20px;
+    }
+}
+
+.consultation-steps__list + .consultation-steps__list {
+    @media (max-width: $breakpoint2) {
+        margin-top: 64px;
+    }
+}
+
+.consultation-steps__list-item {
+    display: flex;
+    align-items: center;
+}
+
+.consultation-step-list-item__numeration {
+    display: inline-block;
+    font-size: $text16;
+    font-family: $title-font;
+    font-weight: $bold;
+    margin-right: 33px;
+    @include frames-around-number;
+}
+
+.consultation-step-list-item__text {
+    font-size: $text14;
+    font-family: $body-font;
+    font-weight: $bold;
+}
+
+.consultation-info__call-to-action-button {
+    @include action-button;
+    margin-top: 70px;
+    @media (max-width: $breakpoint1) {
+        margin: 72px auto;
+    }
+}
+
+.consultation-mockup {
     position: relative;
     grid-area: mockup;
-    img {
-        width: 324px;
-        height: auto;
-        @media (max-width: $breakpoint2) {
-            width: 90%;
-        }
-    }
     @media (max-width: $breakpoint1) {
         justify-self: center;
     }
@@ -669,7 +720,15 @@ svg {
     }
 }
 
-.consultation-price {
+.consultation-mockup__image {
+    width: 324px;
+    height: auto;
+    @media (max-width: $breakpoint2) {
+        width: 90%;
+    }
+}
+
+.consultation-mockup__price {
     position: absolute;
     background: $white;
     right: -45px;
@@ -696,116 +755,128 @@ svg {
         height: 100%;
         background: $green-dark;
     }
-    p {
-        font-size: $text14;
-        span {
-            font-size: $text24;
-            @media (max-width: $breakpoint2) {
-                font-size: $text20;
-            }
-        }
+}
+
+.consultation-mockup__price-text {
+    font-size: $text14;
+}
+
+.consultation-mockup__price-text_accent-text {
+    font-size: $text24;
+    @media (max-width: $breakpoint2) {
+        font-size: $text20;
     }
 }
 
-.cases {
+.cases-section {
     padding: 30px 0;
     position: relative;
-    h2 {
-        margin-top: 60px;
-        font-size: $text36;
-        @media (max-width: $breakpoint2) {
-            font-size: $text24;
-            margin-top: 0px;
-        }
-    }
     overflow: hidden;
-    .cases-swiper {
-        margin-top: 75px;
-        overflow: visible;
-        overflow: hidden;
-        @media (max-width: $breakpoint2) {
-            margin-top: 40px;
-        }
-        .swiper-wrapper {
-            overflow: visible;
-            padding-top: 16px;
-        }
-        .swiper-slide {
-            article {
-                width: 90%;
-                margin: 0 auto;
-                transform: translateX(10px);
-                cursor: pointer;
-                color: $black;
-                font-family: $body-font;
-                padding: 0 35px 35px 10px;
-                position: relative;
-                z-index: 100;
-                overflow: visible;
-                background: $green-dark;
-                user-select: none;
-                touch-action: auto;
-                &::before {
-                    position: absolute;
-                    content: "";
-                    z-index: -100;
-                    width: 100%;
-                    height: 100%;
-                    border: 1px solid $green-dark;
-                    background: $white;
-                    top: -15px;
-                    left: -15px;
-                }
-                h4 {
-                    font-size: $text20;
-                    font-weight: $bold;
-                    text-align: center;
-                    line-height: 1.5;
-                }
-                p {
-                    margin-top: 31px;
-                    line-height: 1.5;
-                    font-size: $text16;
-                    @media (max-width: $breakpoint2) {
-                        margin-top: 20px;
-                    }
-                }
-                footer {
-                    margin-top: 13px;
-                    text-align: end;
-                    button span {
-                        font-size: $text16;
-                        color: $black;
-                        display: inline-block;
-                        margin-right: 12px;
-                        @media (max-width: $breakpoint1) {
-                            font-size: $text14;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .swiper-cases-buttons {
-        margin-top: 30px;
-        button {
-            @include scale-on-hover;
-            display: block;
-        }
-        .prev-case-button {
-            position: absolute;
-            left: 0;
-            padding: 5px;
-        }
-        .next-case-button {
-            position: absolute;
-            right: 0;
-            padding: 5px;
-        }
+}
+
+.cases-section__title {
+    margin-top: 60px;
+    @media (max-width: $breakpoint2) {
+        margin-top: 0px;
     }
 }
 
-.certificates {
+.cases-section__cases-swiper {
+    margin-top: 75px;
+    overflow: visible;
+    overflow: hidden;
+
+    @media (max-width: $breakpoint2) {
+        margin-top: 40px;
+    }
+}
+
+.cases-swiper-list {
+    overflow: visible;
+    padding-top: 16px;
+}
+
+.cases-slide {
+    width: 90%;
+    margin: 0 auto;
+    transform: translateX(10px);
+    cursor: pointer;
+    color: $black;
+    font-family: $body-font;
+    padding: 0 35px 35px 10px;
+    position: relative;
+    z-index: 100;
+    overflow: visible;
+    background: $green-dark;
+    user-select: none;
+    touch-action: auto;
+    &::before {
+        position: absolute;
+        content: "";
+        z-index: -100;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $green-dark;
+        background: $white;
+        top: -15px;
+        left: -15px;
+    }
+}
+
+.cases-slide__header-title {
+    font-size: $text20;
+    font-weight: $bold;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.cases-slide__case-text {
+    margin-top: 31px;
+    line-height: 1.5;
+    font-size: $text16;
+    @media (max-width: $breakpoint2) {
+        margin-top: 20px;
+    }
+}
+
+.cases-slide__footer {
+    margin-top: 13px;
+    text-align: end;
+}
+
+.cases-slide-details-button__text {
+    font-size: $text16;
+    color: $black;
+    display: inline-block;
+    margin-right: 12px;
+    @media (max-width: $breakpoint1) {
+        font-size: $text14;
+    }
+}
+
+.cases-section__swiper-buttons {
+    margin-top: 30px;
+}
+
+.cases-swiper-buttons__prev-case-button,
+.cases-swiper-buttons__next-case-button {
+    @include scale-on-hover;
+    display: block;
+}
+
+.cases-swiper-buttons__prev-case-button {
+    position: absolute;
+    left: 0;
+    padding: 5px;
+}
+
+.cases-swiper-buttons__next-case-button {
+    position: absolute;
+    right: 0;
+    padding: 5px;
+}
+
+.certificates-section {
     margin: 60px 0;
     padding: 30px 0;
     @media (max-width: $breakpoint1) {
@@ -815,61 +886,70 @@ svg {
         margin: 0;
         padding: 22px 0;
     }
-    .certificates-swiper {
-        overflow: hidden;
-        position: relative;
-        padding: 10px 20px;
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 80%;
-        }
-        &::before {
-            transform: translate(-50%, -50%) rotate(177deg);
-            width: 50%;
-            background: $green-light;
-            @media (max-width: $breakpoint2) {
-                width: 85%;
-            }
-        }
-        &::after {
-            transform: translate(-50%, -50%) rotate(2deg);
-            width: 55%;
-            border: 2px solid $green-dark;
-            @media (max-width: $breakpoint2) {
-                width: 85%;
-            }
-        }
+}
+
+.certificates-swiper {
+    overflow: hidden;
+    position: relative;
+    padding: 10px 20px;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 80%;
     }
-    .swiper-slide {
-        display: flex;
-        justify-content: center;
-        width: auto;
-        & img {
-            border: 2px solid $black;
-            width: 240px;
-        }
-    }
-    .swiper-buttons {
-        width: 100%;
-        display: flex;
-        margin-top: 30px;
-        justify-content: space-between;
-        padding: 0 42px;
-        button {
-            @include scale-on-hover;
-            padding: 8px 5px;
-        }
+    &::before {
+        transform: translate(-50%, -50%) rotate(177deg);
+        width: 50%;
+        background: $green-light;
         @media (max-width: $breakpoint2) {
-            padding: 0 5px;
+            width: 85%;
+        }
+    }
+    &::after {
+        transform: translate(-50%, -50%) rotate(2deg);
+        width: 55%;
+        border: 2px solid $green-dark;
+        @media (max-width: $breakpoint2) {
+            width: 85%;
         }
     }
 }
 
-.location {
+.certificates-swiper-slides__slide {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.certificates-swiper-slides__slide-img {
+    border: 2px solid $black;
+    width: 240px;
+}
+
+.certificates-section__swiper-buttons {
+    margin-top: 30px;
+}
+
+.certificates-swiper-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 42px;
+    @media (max-width: $breakpoint2) {
+        padding: 0 5px;
+    }
+}
+
+.certificates-swiper-buttons__next-slide-button,
+.certificates-swiper-buttons__prev-slide-button {
+    @include scale-on-hover;
+    padding: 8px 5px;
+}
+
+.location-section {
     background: $black;
     font-weight: $bold;
     color: $white;
@@ -882,19 +962,21 @@ svg {
     @media (max-width: $breakpoint2) {
         padding: 30px 10px;
     }
-    h2 {
-        font-family: $title-font;
-        font-size: $text36;
-        margin-bottom: 42px;
-        span {
-            @include green-text-strip(100%, 10%);
-        }
-        @media (max-width: $breakpoint2) {
-            width: fit-content;
-            font-size: $text24;
-            margin: 0 auto 30px auto;
-        }
+}
+
+.location-section__title {
+    font-family: $title-font;
+    font-size: $text36;
+    margin-bottom: 42px;
+    @media (max-width: $breakpoint2) {
+        width: fit-content;
+        font-size: $text24;
+        margin: 0 auto 30px auto;
     }
+}
+
+.location-section__title_highlighted {
+    @include green-text-strip(100%, 10%);
 }
 
 .location-info {
@@ -903,37 +985,39 @@ svg {
     @media (max-width: $breakpoint1) {
         margin: 0 auto;
     }
-    .location-contacts {
-        font-size: $text16;
-        font-family: $body-font;
-        font-weight: $bold;
-        padding: 30px 47px;
-        display: flex;
-        gap: 30px;
-        @media (max-width: $breakpoint2) {
-            flex-direction: column;
-        }
-        > div {
-            width: 50%;
-            @media (max-width: $breakpoint2) {
-                width: 100%;
-            }
-        }
-        .location-working-mode {
-            display: flex;
-            flex-direction: column;
-            span {
-                line-height: 1.2;
-                display: inline-block;
-            }
-            span + span {
-                margin-top: 26px;
-            }
-        }
+}
+
+.location-contacts {
+    font-size: $text16;
+    font-family: $body-font;
+    font-weight: $bold;
+    padding: 30px 47px;
+    display: flex;
+    gap: 30px;
+    @media (max-width: $breakpoint2) {
+        flex-direction: column;
     }
 }
 
-.footer {
+.location-contacts__address {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    @media (max-width: $breakpoint2) {
+        width: 100%;
+    }
+}
+
+.location-contacts__address-item {
+    line-height: 1.2;
+    display: inline-block;
+}
+
+.location-contacts__address-item + .location-contacts__address-item {
+    margin-top: 26px;
+}
+
+.footer-section {
     padding: 60px 0;
     display: flex;
     justify-content: space-between;
@@ -941,131 +1025,144 @@ svg {
         flex-direction: column;
         align-items: center;
     }
-    .contact-me {
-        display: flex;
-        flex-direction: column;
-        @media (max-width: $breakpoint1) {
-            align-items: center;
-            margin: 0 auto;
-        }
-        @media (max-width: $breakpoint2) {
-            margin: 0 15px;
-        }
-        h4 {
-            margin-top: 44px;
-            font-size: $text24;
-            font-family: $title-font;
-            position: relative;
-            line-height: 1.5;
-            &::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: -4px;
-                width: 100%;
-                height: 2px;
-                background: $green-dark;
-                @media (max-width: $breakpoint2) {
-                    width: 80%;
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-            }
-            @media (max-width: $breakpoint2) {
-                font-size: $text16;
-                padding: 0 20px;
-                width: 80%;
-                text-align: center;
-            }
-        }
-        > a,
-        > p {
-            display: inline-block;
-            width: max-content;
-            font-size: $text16;
-            font-family: $body-font;
-            font-weight: $bold;
-            margin-top: 34px;
-            @media (max-width: $breakpoint2) {
-                margin-top: 18px;
-                font-size: $text14;
-                text-align: center;
-            }
-        }
-        .messengers {
-            margin-top: 30px;
-            a {
-                display: inline-block;
-                padding: 5px;
-                margin-right: 10px;
-            }
-        }
+}
+
+.footer-contact-me {
+    display: flex;
+    flex-direction: column;
+    @media (max-width: $breakpoint1) {
+        align-items: center;
+        margin: 0 auto;
     }
-    form {
-        border: 2px solid $green-dark;
-        width: 442px;
-        padding: 52px 37px;
-        display: flex;
-        flex-direction: column;
-        @media (max-width: $breakpoint1) {
-            margin: 30px auto 0 auto;
-            width: auto;
-        }
-        @media (max-width: $breakpoint2) {
-            margin: 30px 15px 0 15px;
-            padding: 22px 27px;
-        }
-        h4 {
-            font-family: $title-font;
-            font-size: $text24;
-            font-weight: $bold;
-            line-height: 1.5;
-            text-align: center;
-            margin-bottom: 34px;
-            @media (max-width: $breakpoint2) {
-                font-size: $text16;
-            }
-        }
-        input {
-            font-size: $text20;
-            height: 52px;
-            width: 100%;
-            border-bottom: 1px solid $black;
-            border-radius: 0;
-            @media (max-width: $breakpoint2) {
-                height: 42px;
-                font-size: $text14;
-            }
-        }
-        input + input {
-            margin-top: 44px;
-        }
-        .policy-comment {
-            margin-top: 40px;
-            line-height: 1.2;
-            font-size: $text14;
-            text-align: justify;
-            a {
-                text-decoration: underline;
-            }
-        }
-        button {
-            margin-top: 20px;
-            padding: 16px 40px;
-            background: $green-light;
-            font-size: $text16;
-            font-weight: $bold;
-            font-family: $body-font;
-            @include transition;
-            &:hover {
-                background: $green-dark;
-                color: $white;
-            }
-        }
+    @media (max-width: $breakpoint2) {
+        margin: 0 15px;
     }
 }
 
-.docs {
+.footer-contact-me__title {
+    margin-top: 44px;
+    font-size: $text24;
+    font-family: $title-font;
+    position: relative;
+    line-height: 1.5;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 100%;
+        height: 2px;
+        background: $green-dark;
+        @media (max-width: $breakpoint2) {
+            width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    @media (max-width: $breakpoint2) {
+        font-size: $text16;
+        padding: 0 20px;
+        width: 80%;
+        text-align: center;
+    }
+}
+
+.footer-contact-me__address-item {
+    display: inline-block;
+    width: max-content;
+    font-size: $text16;
+    font-family: $body-font;
+    font-weight: $bold;
+    margin-top: 34px;
+    @media (max-width: $breakpoint2) {
+        margin-top: 18px;
+        font-size: $text14;
+        text-align: center;
+    }
+}
+
+.footer-contact-me__messengers {
+    margin-top: 30px;
+}
+
+.footer-contact-me__messenger-item {
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.feedback-form {
+    border: 2px solid $green-dark;
+    width: 442px;
+    padding: 52px 37px;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: $breakpoint1) {
+        margin: 30px auto 0 auto;
+        width: auto;
+    }
+    @media (max-width: $breakpoint2) {
+        margin: 30px 15px 0 15px;
+        padding: 22px 27px;
+    }
+}
+
+.feedback-form__title {
+    font-family: $title-font;
+    font-size: $text24;
+    font-weight: $bold;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 34px;
+    @media (max-width: $breakpoint2) {
+        font-size: $text16;
+    }
+}
+
+.feedback-form__input {
+    font-size: $text20;
+    height: 52px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $black;
+    border-radius: 0;
+    padding-left: 20px;
+    @media (max-width: $breakpoint2) {
+        height: 42px;
+        font-size: $text14;
+    }
+}
+
+.feedback-form__input + .feedback-form__input {
+    margin-top: 44px;
+}
+
+.feedback-form__policy-comment {
+    margin-top: 40px;
+    line-height: 1.2;
+    font-size: $text14;
+    text-align: justify;
+}
+
+.feedback-form__policy-ancor {
+    text-decoration: underline;
+}
+
+.feedback-form__submit-button {
+    margin-top: 20px;
+    padding: 16px 40px;
+    background: $green-light;
+    font-size: $text16;
+    font-weight: $bold;
+    font-family: $body-font;
+    @include transition;
+    &:hover {
+        background: $green-dark;
+        color: $white;
+    }
+}
+
+.documents-section {
     height: 90px;
     width: 100%;
     background: $black;
@@ -1074,23 +1171,25 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    .policy-anchor {
-        font-family: $title-font;
-        font-size: $text14;
-        padding: 15px;
-        font-weight: 400;
-        @media (max-width: $breakpoint2) {
-            font-size: $text12;
-        }
+}
+
+.documents-section__policy-anchor {
+    font-family: $title-font;
+    font-size: $text14;
+    padding: 15px;
+    font-weight: 400;
+    @media (max-width: $breakpoint2) {
+        font-size: $text12;
     }
-    .scoll-top-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0;
-        padding: 10px 15px;
-        margin-right: 3%;
-    }
+}
+
+.documents-section__scoll-top-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    padding: 10px 15px;
+    margin-right: 3%;
 }
 
 .modal-with-case {
@@ -1109,91 +1208,100 @@ svg {
     overflow-y: auto;
     opacity: 0;
     @include transition;
-    .modal-body {
-        margin-top: 5%;
-        width: 60%;
-        position: relative;
-        @media (max-width: $breakpoint1) {
-            width: 80%;
-        }
+}
+
+.modal-with-case__additional-background {
+    position: absolute;
+    content: "";
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    background: $green-dark;
+    @media (max-width: $breakpoint2) {
+        top: 6px;
+        left: 6px;
     }
-    .modal-body-bg {
-        position: absolute;
-        content: "";
-        top: 15px;
-        left: 15px;
-        width: 100%;
-        height: 100%;
-        background: $green-dark;
-        @media (max-width: $breakpoint2) {
-            top: 6px;
-            left: 6px;
-        }
+}
+
+.modal-with-case__body {
+    margin-top: 5%;
+    width: 60%;
+    position: relative;
+    @media (max-width: $breakpoint1) {
+        width: 80%;
     }
-    .modal-content {
-        padding: 76px 52px;
-        background: $white;
-        border: 2px solid $green-dark;
-        position: relative;
-        z-index: 100;
-        @media (max-width: $breakpoint2) {
-            padding: 20px 15px;
-        }
-        .close-modal-btn {
-            position: absolute;
-            right: 0;
-            top: 0;
-            padding: 15px;
-            @media (max-width: $breakpoint2) {
-                padding: 7px;
-            }
-        }
-        h4 {
-            margin-top: 12px;
-            text-align: center;
-            font-size: $text24;
-            font-weight: $bold;
-            line-height: 1.5;
-            @media (max-width: $breakpoint2) {
-                font-size: $text16;
-            }
-        }
-        p {
-            margin-top: 53px;
-            font-size: $text20;
-            line-height: 1.5;
-            text-align: justify;
-            @media (max-width: $breakpoint2) {
-                margin-top: 18px;
-                font-size: $text14;
-            }
-        }
+}
+
+.modal-with-case-inner {
+    padding: 76px 52px;
+    background: $white;
+    border: 2px solid $green-dark;
+    position: relative;
+    z-index: 100;
+    @media (max-width: $breakpoint2) {
+        padding: 20px 15px;
     }
-    .modal-prev-slide,
-    .modal-next-slide {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 6% 2%;
-        @include transition;
-        &:hover {
-            transform: translateY(-50%) scale(1.1);
-        }
-        @media (max-width: $breakpoint2) {
-            font-size: $text16;
-            touch-action: none;
-        }
-        svg {
-            height: 80px;
-            @media (max-width: $breakpoint2) {
-                height: 60px;
-            }
-        }
+}
+
+.modal-with-case-inner__close-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px;
+    @media (max-width: $breakpoint2) {
+        padding: 7px;
     }
-    .modal-prev-slide {
-        left: 0;
+}
+.modal-with-case-inner__title {
+    margin-top: 12px;
+    text-align: center;
+    font-size: $text24;
+    font-weight: $bold;
+    line-height: 1.5;
+    @media (max-width: $breakpoint2) {
+        font-size: $text16;
     }
-    .modal-next-slide {
-        right: 0;
+}
+
+.modal-with-case-inner__text {
+    margin-top: 53px;
+    font-size: $text20;
+    line-height: 1.5;
+    text-align: justify;
+    @media (max-width: $breakpoint2) {
+        margin-top: 18px;
+        font-size: $text14;
     }
+}
+
+.modal-with-case__prev-slide-button,
+.modal-with-case__next-slide-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6% 2%;
+    @include transition;
+    &:hover {
+        transform: translateY(-50%) scale(1.1);
+    }
+    @media (max-width: $breakpoint2) {
+        font-size: $text16;
+        touch-action: none;
+    }
+}
+
+.modal-with-case-switch-button__icon {
+    height: 80px;
+    @media (max-width: $breakpoint2) {
+        height: 60px;
+    }
+}
+
+.modal-with-case__prev-slide-button {
+    left: 0;
+}
+
+.modal-with-case__next-slide-button {
+    right: 0;
 }

@@ -15,6 +15,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png" />
         <link rel="manifest" href="./assets/site.webmanifest" />
+        <link rel="stylesheet" href="./reset.css" />
         <link rel="stylesheet" href="./styles.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
         <link rel="preload" as="image" href="./assets/images/logo.png" />
@@ -24,58 +25,62 @@
         ></script>
     </head>
     <body>
-        <div class="introduction" id="introduction">
-            <header class="container">
-                <nav class="navbar">
-                    <div class="logo">
-                        <img src="./assets/images/logo.png" alt="Логотип" />
-                        <p>
+        <div class="introduction-section" id="introduction">
+            <header class="container-main">
+                <nav class="introduction-section__navbar-menu navbar-menu">
+                    <div class="navbar-menu__logo">
+                        <img class="navbar-menu__logo-image" src="./assets/images/logo.png" alt="Логотип" />
+                        <p class="navbar-menu__logo-comment">
                             г. Москва
                             <br />
                             №77/12500
                         </p>
                     </div>
-                    <ul class="anchors">
-                        <li>
-                            <a href="#services">Услуги</a>
+                    <ul class="navbar-menu__anchors-list">
+                        <li class="navbar-menu__anchor-wrapper">
+                            <a class="navbar-menu__anchor-item" href="#services">Услуги</a>
                         </li>
-                        <li>
+                        <li class="navbar-menu__anchor-wrapper">
                             <a href="#cases">Практика</a>
                         </li>
-                        <li>
+                        <li class="navbar-menu__anchor-wrapper">
                             <a href="#footer">Контакты</a>
                         </li>
                     </ul>
-                    <div class="phone">
-                        <a href="tel:+79259264901">+7 925 926 4901</a>
-                    </div>
+                    <address class="navbar-menu__address">
+                        <a class="navbar-menu__address-ancor" href="tel:+79259264901">+7 925 926 4901</a>
+                    </address>
                 </nav>
             </header>
 
-            <section class="profile container">
+            <section class="profile-section container-main">
                 <div class="advocate-info">
-                    <article>
-                        <h1>
-                            <span>Адвокат</span>
+                    <article class="advocate-info__article advocate-article-card" class="b">
+                        <h1 class="advocate-article-card__title">
+                            <span class="advocate-article-card__title_accent-word">Адвокат</span>
                             <br />
                             Теуважева Елена Хамидовна
                         </h1>
-                        <p>
+                        <p class="advocate-article-card__slogan-text">
                             Многолетний опыт и гарантия качества — <br />
                             залог успешного решения ваших правовых вопросов
                         </p>
-                        <a href="#footer">Получить консультацию</a>
+                        <a class="advocate-article-card__call-to-action-button" href="#footer">Получить консультацию</a>
                     </article>
-                    <div class="advocate-photo">
-                        <img src="./assets/images/advocate-photo4.jpg" alt="Фото" />
+
+                    <div class="advocate-info__photo advocate-photo">
+                        <img class="advocate-photo__image" src="./assets/images/advocate-photo4.jpg" alt="Фото" />
                     </div>
-                    <a class="mobile-btn-get-consultation" href="#footer">Получить консультацию</a>
+                    <a class="advocate-article-card__call-to-action-button-mobile" href="#footer"
+                        >Получить консультацию</a
+                    >
                 </div>
 
                 <div class="profile-contacts">
-                    <div class="profile-links">
-                        <a href="https://t.me/teuvazhevaelena">
+                    <div class="profile-contacts__links-list">
+                        <a class="profile-contacts__link" href="https://t.me/teuvazhevaelena">
                             <svg
+                                class="profile-contacts__link-icon"
                                 width="26"
                                 height="26"
                                 viewBox="0 0 26 26"
@@ -113,133 +118,169 @@
             </section>
         </div>
 
-        <section class="services container" id="services">
-            <h2 class="section-title">Юридические услуги</h2>
-            <div class="categories">
-                <article class="category-card">
-                    <h3>Сопровождение и<br />представительство</h3>
-                    <ul>
-                        <li>
+        <section class="services-section container-main" id="services">
+            <h2 class="section-title services-section__title">Юридические услуги</h2>
+
+            <div class="services-categories">
+                <article class="services-categories__category-card services-category-card">
+                    <h3 class="services-category-card__title">
+                        Сопровождение и
+                        <br />
+                        представительство
+                    </h3>
+                    <ul class="services-category-card__services-list">
+                        <li class="services-category-card__services-list-item">
                             Составление искового заявления, претензий, ходатайств, возражений, заявлений, жалоб и иных
                             процессуальных документов
                         </li>
-                        <li>Сопровождение сделок</li>
-                        <li>Досудебное урегулирование споров</li>
-                        <li>Составление любых договоров, соглашений</li>
-                        <li>Обжалование решений и определений суда и иных судебных актов</li>
+                        <li class="services-category-card__services-list-item">Сопровождение сделок</li>
+                        <li class="services-category-card__services-list-item">Досудебное урегулирование споров</li>
+                        <li class="services-category-card__services-list-item">
+                            Составление любых договоров, соглашений
+                        </li>
+                        <li class="services-category-card__services-list-item">
+                            Обжалование решений и определений суда и иных судебных актов
+                        </li>
                     </ul>
                 </article>
 
-                <article class="category-card">
-                    <h3>Жилищные споры</h3>
-                    <ul>
-                        <li>Признание права собственности в судебном порядке</li>
-                        <li>Вселение в жилое помещение, выселение из жилого помещения</li>
-                        <li>Защита прав собственников</li>
-                        <li>Споры, связанные с приватизацией жилого помещения</li>
-                        <li>Возмещение ущерба, причиненного заливом</li>
-                        <li>
+                <article class="services-categories__category-card services-category-card">
+                    <h3 class="services-category-card__title">Жилищные споры</h3>
+                    <ul class="services-category-card__services-list">
+                        <li class="services-category-card__services-list-item">
+                            Признание права собственности в судебном порядке
+                        </li>
+                        <li class="services-category-card__services-list-item">
+                            Вселение в жилое помещение, выселение из жилого помещения
+                        </li>
+                        <li class="services-category-card__services-list-item">Защита прав собственников</li>
+                        <li class="services-category-card__services-list-item">
+                            Споры, связанные с приватизацией жилого помещения
+                        </li>
+                        <li class="services-category-card__services-list-item">
+                            Возмещение ущерба, причиненного заливом
+                        </li>
+                        <li class="services-category-card__services-list-item">
                             Наследственные споры, оспаривание завещаний, установление факта принятия наследства,
                             восстановление срока принятия наследства
                         </li>
                     </ul>
                 </article>
 
-                <article class="category-card">
-                    <h3>Семейные споры</h3>
-                    <ul>
-                        <li>Расторжение брака</li>
-                        <li>Взыскание алиментов</li>
-                        <li>Лишение родительских прав</li>
-                        <li>Раздел совместно нажитого имущества</li>
-                        <li>Установление отцовства</li>
-                        <li>Определение порядка общения с ребенком</li>
+                <article class="services-categories__category-card services-category-card">
+                    <h3 class="services-category-card__title">Семейные споры</h3>
+                    <ul class="services-category-card__services-list">
+                        <li class="services-category-card__services-list-item">Расторжение брака</li>
+                        <li class="services-category-card__services-list-item">Взыскание алиментов</li>
+                        <li class="services-category-card__services-list-item">Лишение родительских прав</li>
+                        <li class="services-category-card__services-list-item">Раздел совместно нажитого имущества</li>
+                        <li class="services-category-card__services-list-item">Установление отцовства</li>
+                        <li class="services-category-card__services-list-item">
+                            Определение порядка общения с ребенком
+                        </li>
                     </ul>
                 </article>
 
-                <article class="category-card">
-                    <h3>Иные категории</h3>
-                    <ul>
-                        <li>Арбитражные споры</li>
-                        <li>Взыскание ущерба, причиненного ДТП</li>
-                        <li>Споры о досрочном назнаении пенсии</li>
-                        <li>Признание сделок недействительными, ничтожными</li>
-                        <li>Взыскание долга</li>
-                        <li>Установление юридических фактов</li>
-                        <li>Защита прав потребителей</li>
+                <article class="services-categories__category-card services-category-card">
+                    <h3 class="services-category-card__title">Иные категории</h3>
+                    <ul class="services-category-card__services-list">
+                        <li class="services-category-card__services-list-item">Арбитражные споры</li>
+                        <li class="services-category-card__services-list-item">Взыскание ущерба, причиненного ДТП</li>
+                        <li class="services-category-card__services-list-item">Споры о досрочном назнаении пенсии</li>
+                        <li class="services-category-card__services-list-item">
+                            Признание сделок недействительными, ничтожными
+                        </li>
+                        <li class="services-category-card__services-list-item">Взыскание долга</li>
+                        <li class="services-category-card__services-list-item">Установление юридических фактов</li>
+                        <li class="services-category-card__services-list-item">Защита прав потребителей</li>
                     </ul>
                 </article>
             </div>
         </section>
 
-        <section class="consultation" id="consultation">
-            <h2>Запишитесь на <span>консультацию</span></h2>
-            <div class="consultation-body container">
+        <section class="consultation-section" id="consultation">
+            <h2 class="consultation-section__title">
+                Запишитесь на
+                <span class="consultation-section__title_accent-word"> консультацию</span>
+            </h2>
+            <div class="consultation-inner container-main">
                 <div class="consultation-info">
-                    <h3>На консультации адвокат:</h3>
-                    <div class="consultation-list">
-                        <ul>
-                            <li>
-                                <span>1</span>
-                                <p>Детально ознакомится с вашим делом</p>
+                    <h3 class="consultation-info__title">На консультации адвокат:</h3>
+                    <div class="consultation-info__steps-list consultation-steps">
+                        <ul class="consultation-steps__list">
+                            <li class="consultation-steps__list-item consultation-step-list-item">
+                                <span class="consultation-step-list-item__numeration">1</span>
+                                <p class="consultation-step-list-item__text">Детально ознакомится с вашим делом</p>
                             </li>
-                            <li>
-                                <span>2</span>
-                                <p>Предложит варианты решения проблемы</p>
+                            <li class="consultation-steps__list-item consultation-step-list-item">
+                                <span class="consultation-step-list-item__numeration">2</span>
+                                <p class="consultation-step-list-item__text">Предложит варианты решения проблемы</p>
                             </li>
-                            <li>
-                                <span>3</span>
-                                <p>Ответит на все волнующие вопросы</p>
+                            <li class="consultation-steps__list-item consultation-step-list-item">
+                                <span class="consultation-step-list-item__numeration">3</span>
+                                <p class="consultation-step-list-item__text">Ответит на все волнующие вопросы</p>
                             </li>
                         </ul>
-                        <ul>
-                            <li>
-                                <span>4</span>
-                                <p>Сделает оценку перспективности разрешения проблемы</p>
+                        <ul class="consultation-steps__list">
+                            <li class="consultation-steps__list-item consultation-step-list-item">
+                                <span class="consultation-step-list-item__numeration">4</span>
+                                <p class="consultation-step-list-item__text">
+                                    Сделает оценку перспективности разрешения проблемы
+                                </p>
                             </li>
-                            <li>
-                                <span>5</span>
-                                <p>Разъяснит все риски и последствия</p>
+                            <li class="consultation-steps__list-item consultation-step-list-item">
+                                <span class="consultation-step-list-item__numeration">5</span>
+                                <p class="consultation-step-list-item__text">Разъяснит все риски и последствия</p>
                             </li>
-                            <li>
-                                <span>6</span>
-                                <p>Предложит дальнейший план действий по делу</p>
+                            <li class="consultation-steps__list-item consultation-step-list-item">
+                                <span class="consultation-step-list-item__numeration">6</span>
+                                <p class="consultation-step-list-item__text">
+                                    Предложит дальнейший план действий по делу
+                                </p>
                             </li>
                         </ul>
                     </div>
-                    <a href="#footer">Получить консультацию</a>
+                    <a class="consultation-info__call-to-action-button" href="#footer">Получить консультацию</a>
                 </div>
-                <div class="mockup">
-                    <img src="./assets/images/mockup.png" alt="Телефон" loading="lazy" />
-                    <div class="consultation-price">
-                        <p>
-                            Первичная консультация<br />
-                            от&nbsp;<span>1000 руб.</span>
+                <div class="consultation-mockup">
+                    <img
+                        class="consultation-mockup__image"
+                        src="./assets/images/mockup.png"
+                        alt="Телефон"
+                        loading="lazy"
+                    />
+                    <div class="consultation-mockup__price">
+                        <p class="consultation-mockup__price-text">
+                            Первичная консультация
+                            <br />
+                            от&nbsp;<span class="consultation-mockup__price-text_accent-text">1000 руб.</span>
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="cases container" id="cases">
-            <h2 class="section-title">Практика</h2>
+        <section class="cases-section container-main" id="cases">
+            <h2 class="section-title cases-section__title">Практика</h2>
 
-            <div class="cases-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" id="1">
-                        <article>
-                            <header>
-                                <h4>Дело о возмещении вреда здоровью и взыскании упущенной выгоды.</h4>
+            <div class="cases-section__cases-swiper">
+                <ul class="cases-swiper-list swiper-wrapper">
+                    <li class="cases-swiper-list__item swiper-slide" id="case-1">
+                        <article class="cases-slide">
+                            <header class="cases-slide__header">
+                                <h4 class="cases-slide__header-title">
+                                    Дело о возмещении вреда здоровью и взыскании упущенной выгоды.
+                                </h4>
                             </header>
-                            <p>
+                            <p class="cases-slide__case-text">
                                 Адвокат обратился в суд с исковым заявлением о возмещении вреда здоровью. Требования
                                 обосновывала тем, что водитель, управляя легковым автомобилем, совершил наезд на
                                 пешехода и его несовершеннолетнюю дочь, которых с телесными повреждениями доставили в
                                 ГКБ г. Москвы. Истцу была проведена операция правой ключицы с установлением пластины...
                             </p>
-                            <footer>
-                                <button>
-                                    <span>Подробнее</span>
+                            <footer class="cases-slide__footer">
+                                <button class="cases-slide-details-button">
+                                    <span class="cases-slide-details-button__text">Подробнее</span>
                                     <svg
                                         width="21"
                                         height="8"
@@ -255,25 +296,25 @@
                                 </button>
                             </footer>
                         </article>
-                    </div>
-                    <div class="swiper-slide" id="2">
-                        <article>
-                            <header>
-                                <h4>
+                    </li>
+                    <li class="cases-swiper-list__item swiper-slide" id="case-2">
+                        <article class="cases-slide">
+                            <header class="cases-slide__header">
+                                <h4 class="cases-slide__header-title">
                                     Дело о вселении, нечинении препятствий в пользовании жилым помещением, обязании
                                     предоставить ключи.
                                 </h4>
                             </header>
-                            <p>
+                            <p class="cases-slide__case-text">
                                 К адвокату обратилась женщина, которой родная дочь препятствовала проживанию в
                                 собственной квартире на протяжении долгого времени. Было подано исковое заявление, но в
                                 процессе рассмотрения спора ответчиком было подано встречное исковое заявление о
                                 признании сделки - приватизации жилого помещения недействительной и признании утратившей
                                 право пользования...
                             </p>
-                            <footer>
-                                <button>
-                                    <span>Подробнее</span>
+                            <footer class="cases-slide__footer">
+                                <button class="cases-slide-details-button">
+                                    <span class="cases-slide-details-button__text">Подробнее</span>
                                     <svg
                                         width="21"
                                         height="8"
@@ -289,13 +330,15 @@
                                 </button>
                             </footer>
                         </article>
-                    </div>
-                    <div class="swiper-slide" id="3">
-                        <article>
-                            <header>
-                                <h4>Дело о признании доли в жилом помещении малозначительной.</h4>
+                    </li>
+                    <li class="cases-swiper-list__item swiper-slide" id="case-3">
+                        <article class="cases-slide">
+                            <header class="cases-slide__header">
+                                <h4 class="cases-slide__header-title">
+                                    Дело о признании доли в жилом помещении малозначительной.
+                                </h4>
                             </header>
-                            <p>
+                            <p class="cases-slide__case-text">
                                 Адвокат выступал в интересах истца, по делу о признании доли в жилом помещении
                                 малозначительной. Ответчик, на протяжении длительного времени, требовал от истца
                                 выкупить долю ответчика, под угрозой вселения посторонних лиц в квартиру, при этом сумму
@@ -303,9 +346,9 @@
                                 ответчик, в иных жилых помещениях, имеет доли, которые приобретал для дальнейшей
                                 перепродажи, в жилом помещении истца ответчик не нуждается...
                             </p>
-                            <footer>
-                                <button>
-                                    <span>Подробнее</span>
+                            <footer class="cases-slide__footer">
+                                <button class="cases-slide-details-button">
+                                    <span class="cases-slide-details-button__text">Подробнее</span>
                                     <svg
                                         width="21"
                                         height="8"
@@ -321,13 +364,13 @@
                                 </button>
                             </footer>
                         </article>
-                    </div>
-                    <div class="swiper-slide" id="4">
-                        <article>
-                            <header>
-                                <h4>Дело о досрочном назначении пенсии.</h4>
+                    </li>
+                    <li class="cases-swiper-list__item swiper-slide" id="case-4">
+                        <article class="cases-slide">
+                            <header class="cases-slide__header">
+                                <h4 class="cases-slide__header-title">Дело о досрочном назначении пенсии.</h4>
                             </header>
-                            <p>
+                            <p class="cases-slide__case-text">
                                 К адвокату обратилась бывшая работница завода МПО «Красный богатырь», которой Пенсионный
                                 фонд отказал в назначении досрочной трудовой пенсии, ввиду отсутствия стажа с тяжелыми
                                 условиями труда. Завод «Красный богатырь» относился к нефтехимической отрасли
@@ -335,9 +378,9 @@
                                 потребления). Работники завода «Красный богатырь», занятые в резиновом производстве,
                                 пользуются правом на льготное пенсионное обеспечение...
                             </p>
-                            <footer>
-                                <button>
-                                    <span>Подробнее</span>
+                            <footer class="cases-slide__footer">
+                                <button class="cases-slide-details-button">
+                                    <span class="cases-slide-details-button__text">Подробнее</span>
                                     <svg
                                         width="21"
                                         height="8"
@@ -353,22 +396,24 @@
                                 </button>
                             </footer>
                         </article>
-                    </div>
-                    <div class="swiper-slide" id="5">
-                        <article>
-                            <header>
-                                <h4>Подделка подписи в Договоре купли-продажи автомобиля.</h4>
+                    </li>
+                    <li class="cases-swiper-list__item swiper-slide" id="case-5">
+                        <article class="cases-slide">
+                            <header class="cases-slide__header">
+                                <h4 class="cases-slide__header-title">
+                                    Подделка подписи в Договоре купли-продажи автомобиля.
+                                </h4>
                             </header>
-                            <p>
+                            <p class="cases-slide__case-text">
                                 К адвокату обратилась Доверитель, ссылаясь на то, что ее знакомый с ее согласия долгое
                                 время использовал ее автомобиль, однако, после того как она потребовала вернуть ей
                                 автомобиль, ей было отказано. После чего она узнала, что автомобиль зарегистрирован в
                                 органах ГИБДД на имя ее знакомого, на основании договора купли-продажи, который
                                 Доверитель не подписывала...
                             </p>
-                            <footer>
-                                <button>
-                                    <span>Подробнее</span>
+                            <footer class="cases-slide__footer">
+                                <button class="cases-slide-details-button">
+                                    <span class="cases-slide-details-button__text">Подробнее</span>
                                     <svg
                                         width="21"
                                         height="8"
@@ -384,21 +429,23 @@
                                 </button>
                             </footer>
                         </article>
-                    </div>
-                    <div class="swiper-slide" id="6">
-                        <article>
-                            <header>
-                                <h4>Дело о включении требований кредитора в реестр требований о передаче квартиры.</h4>
+                    </li>
+                    <li class="cases-swiper-list__item swiper-slide" id="case-6">
+                        <article class="cases-slide">
+                            <header class="cases-slide__header">
+                                <h4 class="cases-slide__header-title">
+                                    Дело о включении требований кредитора в реестр требований о передаче квартиры.
+                                </h4>
                             </header>
-                            <p>
+                            <p class="cases-slide__case-text">
                                 Доверителем был пропущен срок на подачу заявления участника строительства о включении
                                 требований о передаче жилого помещения в реестр требований о передаче жилых помещений. В
                                 Арбитражный суд города Москвы адвокатом было подано заявление и ходатайство о
                                 восстановлении пропущенного срока на подачу заявления о включении требований...
                             </p>
-                            <footer>
-                                <button>
-                                    <span>Подробнее</span>
+                            <footer class="cases-slide__footer">
+                                <button class="cases-slide-details-button">
+                                    <span class="cases-slide-details-button__text">Подробнее</span>
                                     <svg
                                         width="21"
                                         height="8"
@@ -414,24 +461,24 @@
                                 </button>
                             </footer>
                         </article>
-                    </div>
-                    <div class="swiper-slide" id="7">
-                        <article>
-                            <header>
-                                <h4>
+                    </li>
+                    <li class="cases-swiper-list__item swiper-slide" id="case-7">
+                        <article class="cases-slide">
+                            <header class="cases-slide__header">
+                                <h4 class="cases-slide__header-title">
                                     Дело об установлении факта родственных отношений, признании права собственности на
                                     наследственное имущество.
                                 </h4>
                             </header>
-                            <p>
+                            <p class="cases-slide__case-text">
                                 Нотариусом города Москвы было отказано Доверителю в совершении нотариального действия -
                                 в выдаче свидетельства о праве на наследство по закону в связи с тем, что не установлен
                                 факт наличия родства между наследником и наследодателем, имеется ошибка в фамилиях
                                 наследодателя и наследника...
                             </p>
-                            <footer>
-                                <button>
-                                    <span>Подробнее</span>
+                            <footer class="cases-slide__footer">
+                                <button class="cases-slide-details-button">
+                                    <span class="cases-slide-details-button__text">Подробнее</span>
                                     <svg
                                         width="21"
                                         height="8"
@@ -447,21 +494,21 @@
                                 </button>
                             </footer>
                         </article>
-                    </div>
-                    <div class="swiper-slide" id="8">
-                        <article>
-                            <header>
-                                <h4>Дело о разделе совместно нажитого имущества.</h4>
+                    </li>
+                    <li class="cases-swiper-list__item swiper-slide" id="case-8">
+                        <article class="cases-slide">
+                            <header class="cases-slide__header">
+                                <h4 class="cases-slide__header-title">Дело о разделе совместно нажитого имущества.</h4>
                             </header>
-                            <p>
+                            <p class="cases-slide__case-text">
                                 Адвокат выступала в интересах ответчицы по делу о разделе совместно нажитого имущества.
                                 Истцом, бывшим супругом Доверителя, не было предъявлено к разделу транспортное средство,
                                 приобретенное супругами в браке и проданное истцом единолично после прекращения брачных
                                 отношений...
                             </p>
-                            <footer>
-                                <button>
-                                    <span>Подробнее</span>
+                            <footer class="cases-slide__footer">
+                                <button class="cases-slide-details-button">
+                                    <span class="cases-slide-details-button__text">Подробнее</span>
                                     <svg
                                         width="21"
                                         height="8"
@@ -477,11 +524,12 @@
                                 </button>
                             </footer>
                         </article>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
-            <div class="swiper-cases-buttons">
-                <button class="prev-case-button">
+
+            <div class="cases-section__swiper-buttons cases-swiper-buttons">
+                <button class="cases-swiper-buttons__prev-case-button">
                     <svg width="85" height="20" viewBox="0 0 85 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.29289 9.29289C8.90237 9.68342 8.90237 10.3166 9.29289 10.7071L15.6569 17.0711C16.0474 17.4616 16.6805 17.4616 17.0711 17.0711C17.4616 16.6805 17.4616 16.0474 17.0711 15.6569L11.4142 10L17.0711 4.34315C17.4616 3.95262 17.4616 3.31946 17.0711 2.92893C16.6805 2.53841 16.0474 2.53841 15.6569 2.92893L9.29289 9.29289ZM75 9H10V11H75V9Z"
@@ -489,7 +537,7 @@
                         />
                     </svg>
                 </button>
-                <button class="next-case-button">
+                <button class="cases-swiper-buttons__next-case-button">
                     <svg width="85" height="20" viewBox="0 0 85 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M75.7071 9.29289C76.0976 9.68342 76.0976 10.3166 75.7071 10.7071L69.3431 17.0711C68.9526 17.4616 68.3195 17.4616 67.9289 17.0711C67.5384 16.6805 67.5384 16.0474 67.9289 15.6569L73.5858 10L67.9289 4.34315C67.5384 3.95262 67.5384 3.31946 67.9289 2.92893C68.3195 2.53841 68.9526 2.53841 69.3431 2.92893L75.7071 9.29289ZM10 9H75V11H10V9Z"
@@ -500,43 +548,73 @@
             </div>
         </section>
 
-        <section class="certificates">
+        <section class="certificates-section">
             <div class="certificates-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container" title="Нажмите дважды для увеличения">
-                            <img src="./assets/images/certificates/cert_1-min.jpg" alt="Сертификат" loading="lazy" />
+                <div class="certificates-swiper-slides swiper-wrapper">
+                    <div class="certificates-swiper-slides__slide swiper-slide">
+                        <div class="certificates-swiper-slides__zoom-container" title="Нажмите дважды для увеличения">
+                            <img
+                                class="certificates-swiper-slides__slide-img"
+                                src="./assets/images/certificates/cert_1-min.jpg"
+                                alt="Сертификат"
+                                loading="lazy"
+                            />
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container" title="Нажмите дважды для увеличения">
-                            <img src="./assets/images/certificates/cert_2-min.jpg" alt="Сертификат" loading="lazy" />
+                    <div class="certificates-swiper-slides__slide swiper-slide">
+                        <div class="certificates-swiper-slides__zoom-container" title="Нажмите дважды для увеличения">
+                            <img
+                                class="certificates-swiper-slides__slide-img"
+                                src="./assets/images/certificates/cert_2-min.jpg"
+                                alt="Сертификат"
+                                loading="lazy"
+                            />
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container" title="Нажмите дважды для увеличения">
-                            <img src="./assets/images/certificates/cert_3-min.jpg" alt="Сертификат" loading="lazy" />
+                    <div class="certificates-swiper-slides__slide swiper-slide">
+                        <div class="certificates-swiper-slides__zoom-container" title="Нажмите дважды для увеличения">
+                            <img
+                                class="certificates-swiper-slides__slide-img"
+                                src="./assets/images/certificates/cert_3-min.jpg"
+                                alt="Сертификат"
+                                loading="lazy"
+                            />
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container" title="Нажмите дважды для увеличения">
-                            <img src="./assets/images/certificates/cert_4-min.jpg" alt="Сертификат" loading="lazy" />
+                    <div class="certificates-swiper-slides__slide swiper-slide">
+                        <div class="certificates-swiper-slides__zoom-container" title="Нажмите дважды для увеличения">
+                            <img
+                                class="certificates-swiper-slides__slide-img"
+                                src="./assets/images/certificates/cert_4-min.jpg"
+                                alt="Сертификат"
+                                loading="lazy"
+                            />
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container" title="Нажмите дважды для увеличения">
-                            <img src="./assets/images/certificates/cert_5-min.jpg" alt="Сертификат" loading="lazy" />
+                    <div class="certificates-swiper-slides__slide swiper-slide">
+                        <div class="certificates-swiper-slides__zoom-container" title="Нажмите дважды для увеличения">
+                            <img
+                                class="certificates-swiper-slides__slide-img"
+                                src="./assets/images/certificates/cert_5-min.jpg"
+                                alt="Сертификат"
+                                loading="lazy"
+                            />
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-zoom-container" title="Нажмите дважды для увеличения">
-                            <img src="./assets/images/certificates/cert_6-min.jpg" alt="Сертификат" loading="lazy" />
+                    <div class="certificates-swiper-slides__slide swiper-slide">
+                        <div class="certificates-swiper-slides__zoom-container" title="Нажмите дважды для увеличения">
+                            <img
+                                class="certificates-swiper-slides__slide-img"
+                                src="./assets/images/certificates/cert_6-min.jpg"
+                                alt="Сертификат"
+                                loading="lazy"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-buttons">
-                <button class="prev-certificate-button">
+            <div class="certificates-section__swiper-buttons certificates-swiper-buttons">
+                <button class="certificates-swiper-buttons__prev-slide-button">
                     <svg width="85" height="20" viewBox="0 0 85 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.29289 9.29289C8.90237 9.68342 8.90237 10.3166 9.29289 10.7071L15.6569 17.0711C16.0474 17.4616 16.6805 17.4616 17.0711 17.0711C17.4616 16.6805 17.4616 16.0474 17.0711 15.6569L11.4142 10L17.0711 4.34315C17.4616 3.95262 17.4616 3.31946 17.0711 2.92893C16.6805 2.53841 16.0474 2.53841 15.6569 2.92893L9.29289 9.29289ZM75 9H10V11H75V9Z"
@@ -544,7 +622,7 @@
                         />
                     </svg>
                 </button>
-                <button class="next-certificate-button">
+                <button class="certificates-swiper-buttons__next-slide-button">
                     <svg width="85" height="20" viewBox="0 0 85 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M75.7071 9.29289C76.0976 9.68342 76.0976 10.3166 75.7071 10.7071L69.3431 17.0711C68.9526 17.4616 68.3195 17.4616 67.9289 17.0711C67.5384 16.6805 67.5384 16.0474 67.9289 15.6569L73.5858 10L67.9289 4.34315C67.5384 3.95262 67.5384 3.31946 67.9289 2.92893C68.3195 2.53841 68.9526 2.53841 69.3431 2.92893L75.7071 9.29289ZM10 9H75V11H10V9Z"
@@ -555,34 +633,45 @@
             </div>
         </section>
 
-        <section class="location" id="location">
-            <div class="container" style="width: 100%">
-                <h2>Как <span>добраться</span></h2>
+        <section class="location-section" id="location">
+            <div class="location-section__inner container-main" style="width: 100%">
+                <h2 class="location-section__title">
+                    Как <span class="location-section__title_highlighted">добраться</span>
+                </h2>
                 <div class="location-info">
                     <div id="map" style="min-width: 100%; height: 410px"></div>
-                    <footer class="location-contacts">
-                        <div class="location-working-mode">
-                            <span>Адрес:&nbsp;г. Москва, ул. Первомайская, д. 12А</span>
-                            <span>Часы работы:&nbsp;пн-пт, с 09:00 до 19:00</span>
+                    <footer class="location-info__footer location-contacts">
+                        <div class="location-contacts__address">
+                            <span class="location-contacts__address-item"
+                                >Адрес:&nbsp;г. Москва, ул. Первомайская, д. 12А</span
+                            >
+                            <span class="location-contacts__address-item"
+                                >Часы работы:&nbsp;пн-пт, с 09:00 до 19:00</span
+                            >
                         </div>
-                        <div class="location-contacts-right">
-                            <a href="tel:+79259264901">Телефон:&nbsp;+7 925 926 4901</a>
+                        <div class="location-contacts__address">
+                            <a class="location-contacts__address-item" href="tel:+79259264901"
+                                >Телефон:&nbsp;+7 925 926 4901</a
+                            >
                         </div>
                     </footer>
                 </div>
             </div>
         </section>
 
-        <footer class="footer container" id="footer">
-            <div class="contact-me">
+        <footer class="footer-section container-main" id="footer">
+            <div class="footer-contact-me">
                 <h3 class="section-title">У вас остались вопросы?</h3>
-                <h4>Свяжитесь со мной любым удобным способом</h4>
-                <a href="tel:+79259264901">Телефон:&nbsp;+7 925 926 4901</a>
-                <a href="mailto:teu-elena@yandex.ru">E-mail:&nbsp;teu-elena@yandex.ru</a>
-                <p>Адрес: г. Москва, ул. Первомайская, д. 12А</p>
-                <p>Часы работы: пн-пт, с 09:00 до 19:00</p>
-                <div class="messengers">
-                    <a href="https://t.me/teuvazhevaelena" target="_blank">
+                <h4 class="footer-contact-me__title">Свяжитесь со мной любым удобным способом</h4>
+                <a class="footer-contact-me__address-item" href="tel:+79259264901">Телефон:&nbsp;+7 925 926 4901</a>
+                <a class="footer-contact-me__address-item" href="mailto:teu-elena@yandex.ru"
+                    >E-mail:&nbsp;teu-elena@yandex.ru</a
+                >
+                <p class="footer-contact-me__address-item">Адрес: г. Москва, ул. Первомайская, д. 12А</p>
+                <p class="footer-contact-me__address-item">Часы работы: пн-пт, с 09:00 до 19:00</p>
+
+                <div class="footer-contact-me__messengers">
+                    <a class="footer-contact-me__messenger-item" href="https://t.me/teuvazhevaelena" target="_blank">
                         <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 fill-rule="evenodd"
@@ -592,7 +681,7 @@
                             />
                         </svg>
                     </a>
-                    <a href="https://wa.me/79259264901" target="_blank">
+                    <a class="footer-contact-me__messenger-item" href="https://wa.me/79259264901" target="_blank">
                         <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M1.50012 25.0738C2.03789 23.1002 2.54177 21.2184 3.06925 19.343C3.16752 18.9945 3.142 18.7169 2.96985 18.3928C-0.807113 11.2776 3.54685 2.39182 11.4858 0.997117C18.3089 -0.201823 24.5991 4.39056 25.5627 11.2749C26.4931 17.9205 21.4494 24.2374 14.7844 24.8083C12.4745 25.006 10.2975 24.5973 8.21692 23.5896C8.00174 23.4852 7.69363 23.4692 7.45788 23.5286C5.50065 24.0188 3.55028 24.5375 1.50012 25.0738ZM4.3874 22.2174C5.57568 21.9054 6.63446 21.64 7.68677 21.3414C8.02002 21.2473 8.28395 21.282 8.58521 21.4575C10.6068 22.6348 12.7918 23.0888 15.0998 22.7201C20.4093 21.8738 23.9608 17.3374 23.58 11.9574C23.1743 6.22667 17.6054 1.9207 11.9531 2.96691C4.95526 4.26183 1.47232 11.8523 5.07523 17.9856C5.30984 18.3848 5.36811 18.7237 5.23519 19.1606C4.9385 20.1352 4.68714 21.1239 4.3874 22.217V22.2174Z"
@@ -607,23 +696,25 @@
                 </div>
             </div>
 
-            <form id="feedback-form">
-                <h4>Укажите контактные данные,<br />и я свяжусь с вами</h4>
-                <input type="text" placeholder="Имя" id="name" />
-                <input type="text" placeholder="Номер телефона" id="phone" />
-                <p class="policy-comment">
+            <form class="feedback-form" id="feedback-form">
+                <h4 class="feedback-form__title">Укажите контактные данные,<br />и я свяжусь с вами</h4>
+                <input class="feedback-form__input" type="text" placeholder="Имя" id="name" />
+                <input class="feedback-form__input" type="text" placeholder="Номер телефона" id="phone" />
+                <p class="feedback-form__policy-comment">
                     Нажимая "Получить консультацию", Вы соглашаетесь на обработку персональных данных в соответствии с
-                    <a href="./assets/policy_2023_teuvazheva.pdf" target="_blank">политикой конфиденциальности</a>
+                    <a class="feedback-form__policy-ancor" href="./assets/policy_2023_teuvazheva.pdf" target="_blank"
+                        >политикой конфиденциальности</a
+                    >
                 </p>
-                <button type="submit">Получить консультацию</button>
+                <button class="feedback-form__submit-button" type="submit">Получить консультацию</button>
             </form>
         </footer>
 
-        <div class="docs">
-            <a class="policy-anchor" href="./assets/policy_2023_teuvazheva.pdf" target="_blank"
-                >Политика конфиденциальности</a
-            >
-            <a class="scoll-top-btn" href="#introduction">
+        <div class="documents-section">
+            <a class="documents-section__policy-anchor" href="./assets/policy_2023_teuvazheva.pdf" target="_blank">
+                Политика конфиденциальности
+            </a>
+            <a class="documents-section__scoll-top-button" href="#introduction">
                 <svg width="20" height="44" viewBox="0 0 20 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M10.7071 9.29289C10.3166 8.90237 9.68342 8.90237 9.29289 9.29289L2.92893 15.6569C2.53841 16.0474 2.53841 16.6805 2.92893 17.0711C3.31946 17.4616 3.95262 17.4616 4.34315 17.0711L10 11.4142L15.6569 17.0711C16.0474 17.4616 16.6805 17.4616 17.0711 17.0711C17.4616 16.6805 17.4616 16.0474 17.0711 15.6569L10.7071 9.29289ZM11 34L11 10L9 10L9 34L11 34Z"
@@ -634,10 +725,10 @@
         </div>
 
         <div class="modal-with-case" id="modal-wrapper">
-            <div class="modal-body">
-                <div class="modal-body-bg"></div>
-                <div class="modal-content" id="modal-content">
-                    <button class="close-modal-btn" id="modal-close">
+            <div class="modal-with-case__body">
+                <div class="modal-with-case__additional-background"></div>
+                <div class="modal-with-case-inner" id="modal-content">
+                    <button class="modal-with-case-inner__close-button" id="modal-close">
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M19.4167 8.5835L8.58337 19.4168M8.58337 8.5835L19.4167 19.4168"
@@ -649,55 +740,46 @@
                         </svg>
                     </button>
                     <header>
-                        <h4 id="modal-title"></h4>
+                        <h4 class="modal-with-case-inner__title" id="modal-title"></h4>
                     </header>
-                    <p id="modal-text"></p>
+                    <p class="modal-with-case-inner__text" id="modal-text"></p>
                 </div>
             </div>
-            <button class="modal-prev-slide" id="modal-prev">
-                <svg width="31" height="84" viewBox="0 0 31 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <button class="modal-with-case__prev-slide-button modal-with-case-switch-button" id="modal-prev">
+                <svg
+                    class="modal-with-case-switch-button__icon"
+                    class=""
+                    width="31"
+                    height="84"
+                    viewBox="0 0 31 84"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
                     <path d="M27.6299 82L3.62988 42L27.6299 2" stroke="white" stroke-width="6" />
                 </svg>
             </button>
-            <button class="modal-next-slide" id="modal-next">
-                <svg width="31" height="84" viewBox="0 0 31 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <button class="modal-with-case__next-slide-button" id="modal-next">
+                <svg
+                    class="modal-with-case-switch-button__icon"
+                    width="31"
+                    height="84"
+                    viewBox="0 0 31 84"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
                     <path d="M3 2L27 42L3 82" stroke="white" stroke-width="6" />
                 </svg>
             </button>
         </div>
 
-        <script type="text/javascript">
-            (function (m, e, t, r, i, k, a) {
-                m[i] =
-                    m[i] ||
-                    function () {
-                        (m[i].a = m[i].a || []).push(arguments);
-                    };
-                m[i].l = 1 * new Date();
-                for (var j = 0; j < document.scripts.length; j++) {
-                    if (document.scripts[j].src === r) {
-                        return;
-                    }
-                }
-                (k = e.createElement(t)),
-                    (a = e.getElementsByTagName(t)[0]),
-                    (k.async = 1),
-                    (k.src = r),
-                    a.parentNode.insertBefore(k, a);
-            })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-            ym(94310206, "init", {
-                clickmap: true,
-                trackLinks: true,
-                accurateTrackBounce: true,
-                webvisor: true,
-            });
-        </script>
         <noscript
             ><div>
                 <img src="https://mc.yandex.ru/watch/94310206" style="position: absolute; left: -9999px" alt="" /></div
         ></noscript>
 
+        <script src="./ymetrica.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script defer src="./swiper.js"></script>
         <script defer src="./ymaps.js"></script>

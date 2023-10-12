@@ -14,11 +14,11 @@ modalCloseBtn.onclick = (e) => hideModal(e);
 
 document.addEventListener("keydown", hideModal);
 
-document.querySelectorAll(".cases-swiper .swiper-slide").forEach((slide) => {
+document.querySelectorAll(".cases-swiper-list__item").forEach((slide) => {
     slide.addEventListener("click", (evt) => {
         evt.stopPropagation();
         activeSlide = casesList.find((caseEl) => caseEl.id === evt.currentTarget.id);
-        renderSlide();
+        renderSlideModal();
     });
 });
 
@@ -28,10 +28,10 @@ function switchSlide(step) {
     const lastSlide = casesList[casesList.length - 1];
     const nextSlide = casesList.find((caseEl) => +caseEl.id === +activeSlide.id + step);
     activeSlide = nextSlide || (step === 1 ? firstSlise : lastSlide);
-    renderSlide();
+    renderSlideModal();
 }
 
-function renderSlide() {
+function renderSlideModal() {
     modalTitle.innerText = activeSlide?.title;
     modalText.innerText = activeSlide?.body;
     modalWrapper.style.display = "flex";
@@ -39,7 +39,6 @@ function renderSlide() {
 }
 
 function hideModal(evt) {
-    if (evt?.key === "Escape" || evt instanceof PointerEvent)
-        modalWrapper.style.opacity = 0;
+    if (evt?.key === "Escape" || evt instanceof PointerEvent) modalWrapper.style.opacity = 0;
     setTimeout(() => (modalWrapper.style.display = "none"), 300);
 }
